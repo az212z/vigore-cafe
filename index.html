@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="فيقوري VIGORE - كوفي شباك اقتصادي في تبوك. قهوة ممتازة بأسعار تبدأ من ريال واحد. مفتوح 24 ساعة.">
-  <title>فيقوري | VIGORE - كوفي شباك تبوك</title>
+  <meta name="description" content="فيقوري VIGORE — كوفي شباك اقتصادي في تبوك. قهوة مختصة بأسعار 1-20 ريال. مفتوح 24 ساعة. 3 فروع. تقييم 4.4 من 5.">
+  <title>VIGORE | فيقوري — كوفي شباك تبوك</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,261 +15,345 @@
       --green:      #3ab54a;
       --green-dk:   #2a8a38;
       --green-lt:   #5fd46e;
-      --green-dim:  rgba(58,181,74,0.13);
-      --green-glow: rgba(58,181,74,0.22);
-      --bg:         #0d0f0d;
-      --bg2:        #121712;
-      --bg3:        #181f18;
-      --bg4:        #1e271e;
-      --cream:      #f0f5f0;
+      --green-xl:   #8eeea0;
+      --green-dim:  rgba(58,181,74,0.10);
+      --green-dim2: rgba(58,181,74,0.18);
+      --green-glow: rgba(58,181,74,0.25);
+      --green-glow2:rgba(58,181,74,0.45);
+      --bg:         #0a0c0a;
+      --bg2:        #0f140f;
+      --bg3:        #141a14;
+      --bg4:        #1a221a;
+      --bg5:        #1f291f;
+      --cream:      #eef3ee;
       --cream2:     #8fa48f;
-      --cream3:     #506050;
-      --border:     rgba(58,181,74,0.12);
-      --border2:    rgba(58,181,74,0.28);
+      --cream3:     #4a5e4a;
+      --border:     rgba(58,181,74,0.10);
+      --border2:    rgba(58,181,74,0.26);
+      --border3:    rgba(58,181,74,0.42);
       --font-ar:    'Cairo', sans-serif;
       --font-en:    'Space Grotesk', sans-serif;
-      --r-sm: 8px; --r-md: 14px; --r-lg: 22px;
-      --nav-h: 68px;
+      --r-xs: 6px; --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px;
+      --nav-h: 72px;
+      --shadow-green: 0 0 40px rgba(58,181,74,0.15);
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body { background:var(--bg); color:var(--cream); font-family:var(--font-ar); overflow-x:hidden; line-height:1.7; }
     img { display:block; max-width:100%; }
     a { text-decoration:none; color:inherit; }
+    ::selection { background:var(--green); color:#fff; }
 
-    /* REVEAL */
-    .rv { opacity:0; transform:translateY(26px); transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
+    /* ────── SCROLL REVEAL ────── */
+    .rv { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
     .rv.in { opacity:1; transform:translateY(0); }
-    .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+    .rv-left { opacity:0; transform:translateX(32px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+    .rv-left.in { opacity:1; transform:translateX(0); }
+    .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s} .d5{transition-delay:.40s}
 
-    /* NAV */
-    .nav { position:fixed; top:0; inset-inline:0; z-index:100; height:var(--nav-h); display:flex; align-items:center; padding:0 48px; transition:background .4s, border-color .4s; }
-    .nav.scrolled { background:rgba(13,15,13,.94); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); }
-    .nav-inner { width:100%; max-width:1280px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
-    .nav-logo { display:flex; align-items:center; gap:10px; }
-    /* Real brand: just bold green text + kiosk icon */
-    .nav-logo-icon { width:36px; height:36px; background:var(--green); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; }
+    /* ────── NAV ────── */
+    .nav { position:fixed; top:0; inset-inline:0; z-index:100; height:var(--nav-h); display:flex; align-items:center; padding:0 52px; transition:background .45s, border-color .45s, box-shadow .45s; }
+    .nav.scrolled { background:rgba(10,12,10,.96); backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border-bottom:1px solid var(--border); box-shadow:0 4px 32px rgba(0,0,0,.4); }
+    .nav-inner { width:100%; max-width:1300px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; gap:11px; }
+    .nav-logo-icon { width:38px; height:38px; background:linear-gradient(135deg, var(--green), var(--green-dk)); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px var(--green-glow); }
     .nav-logo-icon i { color:#fff; font-size:18px; }
-    .nav-logo-en { font-family:var(--font-en); font-size:20px; font-weight:700; letter-spacing:.08em; color:var(--green); }
-    .nav-logo-ar { font-size:11px; color:var(--cream2); font-weight:400; }
-    .nav-links { display:flex; align-items:center; gap:30px; list-style:none; }
-    .nav-links a { font-size:14px; font-weight:500; color:var(--cream2); transition:color .2s; position:relative; }
-    .nav-links a::after { content:''; position:absolute; bottom:-4px; right:0; width:0; height:1px; background:var(--green); transition:width .3s; }
+    .nav-logo-en { font-family:var(--font-en); font-size:21px; font-weight:700; letter-spacing:.1em; color:var(--green); }
+    .nav-logo-ar { font-size:10.5px; color:var(--cream3); font-weight:400; letter-spacing:.02em; }
+    .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+    .nav-links a { font-size:13.5px; font-weight:500; color:var(--cream2); transition:color .2s; position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-5px; right:0; width:0; height:1.5px; background:var(--green); transition:width .3s cubic-bezier(.16,1,.3,1); border-radius:2px; }
     .nav-links a:hover { color:var(--cream); }
     .nav-links a:hover::after { width:100%; }
-    .nav-cta { background:var(--green) !important; color:#fff !important; padding:9px 20px; border-radius:100px; font-weight:700 !important; font-size:13px !important; transition:background .2s, transform .15s !important; white-space:nowrap; }
-    .nav-cta:hover { background:var(--green-lt) !important; transform:translateY(-1px); }
+    .nav-cta { background:linear-gradient(135deg, var(--green), var(--green-dk)) !important; color:#fff !important; padding:9px 22px; border-radius:100px; font-weight:700 !important; font-size:13px !important; transition:box-shadow .25s, transform .18s !important; white-space:nowrap; box-shadow:0 2px 14px var(--green-glow) !important; }
+    .nav-cta:hover { box-shadow:0 4px 24px var(--green-glow2) !important; transform:translateY(-1px); }
     .nav-cta::after { display:none !important; }
-    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
-    .burger span { display:block; width:24px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; }
+    .burger span { display:block; width:24px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s cubic-bezier(.16,1,.3,1); }
 
-    /* MOBILE MENU */
-    .mob-menu { position:fixed; inset:0; z-index:99; background:rgba(13,15,13,.97); backdrop-filter:blur(20px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; transform:translateX(-100%); transition:transform .4s cubic-bezier(.16,1,.3,1); }
+    /* ────── MOBILE MENU ────── */
+    .mob-menu { position:fixed; inset:0; z-index:99; background:rgba(10,12,10,.98); backdrop-filter:blur(24px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:32px; transform:translateX(-100%); transition:transform .42s cubic-bezier(.16,1,.3,1); }
     .mob-menu.open { transform:translateX(0); }
-    .mob-menu a { font-size:1.4rem; font-weight:600; color:var(--cream2); transition:color .2s; }
+    .mob-menu a { font-size:1.5rem; font-weight:600; color:var(--cream2); transition:color .2s; }
     .mob-menu a:hover { color:var(--green); }
 
-    /* HERO */
+    /* ────── HERO ────── */
     .hero { position:relative; min-height:100dvh; display:flex; align-items:center; overflow:hidden; }
     .hero-bg { position:absolute; inset:0; z-index:0; }
-    .hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.04); transition:transform 7s ease; }
+    .hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center 40%; transform:scale(1.05); transition:transform 9s ease; }
     .hero.loaded .hero-bg img { transform:scale(1); }
-    .hero-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(135deg, rgba(13,15,13,.88) 0%, rgba(13,15,13,.6) 50%, rgba(13,15,13,.85) 100%); }
-    /* Green stripe accent */
-    .hero-stripe { position:absolute; top:0; right:0; width:4px; height:100%; background:linear-gradient(to bottom, var(--green), var(--green-dk)); z-index:2; }
-    .hero-body { position:relative; z-index:2; max-width:1280px; margin:0 auto; padding:0 48px; width:100%; }
+    .hero-overlay { position:absolute; inset:0; z-index:1;
+      background:linear-gradient(
+        to left,
+        rgba(10,12,10,.96) 0%,
+        rgba(10,12,10,.80) 40%,
+        rgba(10,12,10,.50) 70%,
+        rgba(10,12,10,.40) 100%
+      );
+    }
+    .hero-overlay-2 { position:absolute; inset:0; z-index:1; background:linear-gradient(to top, rgba(10,12,10,.9) 0%, transparent 50%); }
+    /* vertical accent */
+    .hero-stripe { position:absolute; top:0; right:0; width:3px; height:100%; background:linear-gradient(to bottom, var(--green-lt), var(--green-dk), transparent); z-index:3; opacity:.7; }
+    /* glow ball */
+    .hero-glow { position:absolute; top:15%; left:55%; width:600px; height:600px; background:radial-gradient(circle, rgba(58,181,74,.08) 0%, transparent 70%); z-index:1; pointer-events:none; }
+    .hero-body { position:relative; z-index:4; max-width:1300px; margin:0 auto; padding:0 52px; width:100%; }
 
-    /* BADGE pill */
-    .badge-pill { display:inline-flex; align-items:center; gap:8px; background:var(--green-dim); border:1px solid var(--border2); border-radius:100px; padding:6px 16px; font-size:12px; font-weight:600; color:var(--green-lt); margin-bottom:24px; }
-    .badge-pill .dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-    @media (prefers-reduced-motion:reduce) { .dot { animation:none; } }
+    /* badge */
+    .badge-pill { display:inline-flex; align-items:center; gap:9px; background:rgba(58,181,74,.08); border:1px solid rgba(58,181,74,.25); border-radius:100px; padding:7px 18px; font-size:12px; font-weight:600; color:var(--green-xl); margin-bottom:28px; letter-spacing:.03em; }
+    .badge-pill .dot { width:6px; height:6px; background:var(--green-lt); border-radius:50%; animation:pulse 2.2s ease-in-out infinite; box-shadow:0 0 6px var(--green-lt); }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.85)} }
 
-    .hero-ttl { font-size:clamp(2.8rem,7vw,5.8rem); font-weight:900; line-height:1.05; letter-spacing:-.02em; margin-bottom:18px; }
-    .hero-ttl .hl { color:var(--green); }
-    .hero-sub { font-size:clamp(.95rem,1.8vw,1.1rem); color:var(--cream2); max-width:440px; margin-bottom:36px; line-height:1.8; }
+    .hero-ttl { font-size:clamp(3rem,7.5vw,6.2rem); font-weight:900; line-height:1.03; letter-spacing:-.025em; margin-bottom:22px; }
+    .hero-ttl .hl { background:linear-gradient(135deg, var(--green-lt), var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .hero-ttl .hl2 { color:var(--cream); }
+    .hero-sub { font-size:clamp(.95rem,1.8vw,1.12rem); color:var(--cream2); max-width:460px; margin-bottom:40px; line-height:1.85; font-weight:400; }
     .hero-ctas { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
-    .btn-green { background:var(--green); color:#fff; padding:13px 28px; border-radius:100px; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; transition:background .2s, transform .15s, box-shadow .2s; }
-    .btn-green:hover { background:var(--green-lt); transform:translateY(-2px); box-shadow:0 8px 24px var(--green-glow); }
+    .btn-green { background:linear-gradient(135deg, var(--green-lt), var(--green)); color:#fff; padding:14px 30px; border-radius:100px; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:9px; white-space:nowrap; transition:box-shadow .25s, transform .18s; box-shadow:0 4px 20px var(--green-glow); }
+    .btn-green:hover { box-shadow:0 8px 32px var(--green-glow2); transform:translateY(-2px); }
     .btn-green:active { transform:scale(.98); }
-    .btn-ghost { background:transparent; color:var(--cream); padding:12px 28px; border-radius:100px; border:1px solid rgba(240,245,240,.2); font-weight:500; font-size:15px; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; transition:border-color .2s, background .2s, transform .15s; }
-    .btn-ghost:hover { border-color:var(--green); background:var(--green-dim); transform:translateY(-2px); }
+    .btn-ghost { background:transparent; color:var(--cream); padding:13px 30px; border-radius:100px; border:1px solid rgba(240,245,240,.18); font-weight:500; font-size:15px; display:inline-flex; align-items:center; gap:9px; white-space:nowrap; transition:all .25s; }
+    .btn-ghost:hover { border-color:var(--green); background:var(--green-dim); transform:translateY(-2px); color:var(--green-xl); }
 
-    /* HERO STATS row */
-    .hero-stats { display:flex; gap:40px; margin-top:48px; flex-wrap:wrap; }
-    .hstat { display:flex; flex-direction:column; }
-    .hstat-num { font-family:var(--font-en); font-size:1.8rem; font-weight:700; color:var(--green); line-height:1; }
-    .hstat-lbl { font-size:11px; color:var(--cream2); margin-top:4px; }
+    /* hero stats */
+    .hero-stats { display:flex; gap:0; margin-top:52px; }
+    .hstat { display:flex; flex-direction:column; padding:0 36px 0 0; border-inline-end:1px solid var(--border2); }
+    .hstat:last-child { border:none; }
+    .hstat:first-child { padding-inline-start:0; }
+    .hstat-num { font-family:var(--font-en); font-size:2rem; font-weight:700; color:var(--green-lt); line-height:1.1; }
+    .hstat-lbl { font-size:10.5px; color:var(--cream3); margin-top:5px; letter-spacing:.03em; }
 
-    /* SECTIONS */
-    .sec { padding:88px 48px; }
+    /* ────── MARQUEE ────── */
+    .marquee-wrap { overflow:hidden; background:linear-gradient(90deg, var(--green-dk), var(--green), var(--green-dk)); padding:11px 0; }
+    .marquee-track { display:flex; gap:0; animation:marquee 28s linear infinite; width:max-content; }
+    .marquee-track:hover { animation-play-state:paused; }
+    .mitem { display:flex; align-items:center; gap:10px; padding:0 36px; font-size:13px; font-weight:600; color:#fff; white-space:nowrap; }
+    .mitem i { font-size:15px; opacity:.85; }
+    .msep { color:rgba(255,255,255,.4); font-size:18px; user-select:none; }
+    @keyframes marquee { to { transform:translateX(-50%); } }
+
+    /* ────── SECTIONS ────── */
+    .sec { padding:96px 52px; }
     .sec-alt { background:var(--bg2); }
-    .wrap { max-width:1280px; margin:0 auto; }
-    .sec-ttl { font-size:clamp(1.8rem,3.6vw,2.8rem); font-weight:700; line-height:1.2; }
-    .sec-body { font-size:1rem; color:var(--cream2); max-width:500px; margin-top:12px; line-height:1.85; }
-    .green-bar { width:42px; height:3px; background:var(--green); border-radius:2px; margin-top:16px; }
+    .sec-dark { background:var(--bg); }
+    .wrap { max-width:1300px; margin:0 auto; }
+    .sec-head { margin-bottom:56px; }
+    .sec-head.center { text-align:center; display:flex; flex-direction:column; align-items:center; }
+    .sec-kicker { font-size:11px; font-weight:700; color:var(--green); letter-spacing:.15em; text-transform:uppercase; margin-bottom:12px; }
+    .sec-ttl { font-size:clamp(1.9rem,3.8vw,3rem); font-weight:800; line-height:1.18; }
+    .sec-body { font-size:1rem; color:var(--cream2); max-width:520px; margin-top:14px; line-height:1.9; }
+    .sec-body.center { margin:14px auto 0; text-align:center; }
+    .green-bar { width:38px; height:3px; background:linear-gradient(90deg, var(--green-lt), var(--green-dk)); border-radius:2px; margin-top:18px; }
 
-    /* CONCEPT CARDS */
-    .concept-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .cc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-lg); padding:32px 26px; transition:border-color .25s, transform .25s; }
-    .cc:hover { border-color:var(--border2); transform:translateY(-4px); }
-    .cc.featured { background:var(--green); border-color:transparent; }
-    .cc.featured .cc-ico, .cc.featured .cc-ttl, .cc.featured .cc-desc { color:#fff; }
-    .cc-ico { font-size:1.8rem; color:var(--green); margin-bottom:16px; }
-    .cc-ttl { font-size:1.1rem; font-weight:700; margin-bottom:8px; }
-    .cc-desc { font-size:.88rem; color:var(--cream2); line-height:1.75; }
+    /* ────── CONCEPT CARDS ────── */
+    .concept-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .cc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-lg); padding:34px 28px; transition:border-color .28s, transform .28s, box-shadow .28s; position:relative; overflow:hidden; }
+    .cc::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 0%, rgba(58,181,74,.06) 0%, transparent 65%); pointer-events:none; }
+    .cc:hover { border-color:var(--border2); transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,.3), 0 0 0 1px var(--border2); }
+    .cc.featured { background:linear-gradient(135deg, var(--green-dk) 0%, var(--green) 100%); border-color:transparent; box-shadow:0 12px 40px var(--green-glow2); }
+    .cc.featured::before { display:none; }
+    .cc.featured .cc-ico { color:#fff; }
+    .cc.featured .cc-ttl { color:#fff; }
+    .cc.featured .cc-desc { color:rgba(255,255,255,.85); }
+    .cc-ico { font-size:2rem; color:var(--green); margin-bottom:18px; display:block; }
+    .cc-ttl { font-size:1.12rem; font-weight:700; margin-bottom:10px; }
+    .cc-desc { font-size:.875rem; color:var(--cream2); line-height:1.8; }
 
-    /* ABOUT / KIOSK */
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-    .about-img { border-radius:var(--r-lg); overflow:hidden; position:relative; height:480px; }
-    .about-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
-    .about-img:hover img { transform:scale(1.04); }
-    .about-img-badge { position:absolute; bottom:20px; right:20px; background:var(--green); color:#fff; border-radius:100px; padding:8px 18px; font-size:12px; font-weight:700; }
-    .about-text p { font-size:1rem; color:var(--cream2); line-height:1.9; margin-bottom:16px; }
-    .fact-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
-    .fact { display:flex; align-items:center; gap:8px; background:var(--bg3); border:1px solid var(--border); border-radius:100px; padding:8px 16px; font-size:.85rem; color:var(--cream2); transition:border-color .2s; }
-    .fact:hover { border-color:var(--border2); }
-    .fact i { color:var(--green); font-size:15px; }
+    /* ────── ABOUT ────── */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .about-img-wrap { position:relative; }
+    .about-img { border-radius:var(--r-xl); overflow:hidden; height:520px; }
+    .about-img img { width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.16,1,.3,1); }
+    .about-img:hover img { transform:scale(1.05); }
+    .about-img-badge { position:absolute; bottom:20px; right:20px; background:linear-gradient(135deg, var(--green), var(--green-dk)); color:#fff; border-radius:100px; padding:9px 20px; font-size:12px; font-weight:700; letter-spacing:.06em; box-shadow:0 4px 16px var(--green-glow); }
+    /* floating stat card */
+    .about-card { position:absolute; top:28px; left:-24px; background:var(--bg3); border:1px solid var(--border2); border-radius:var(--r-md); padding:16px 20px; min-width:140px; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+    .about-card-num { font-family:var(--font-en); font-size:1.8rem; font-weight:700; color:var(--green-lt); line-height:1; }
+    .about-card-lbl { font-size:11px; color:var(--cream3); margin-top:4px; }
+    .about-text p { font-size:1rem; color:var(--cream2); line-height:1.95; margin-bottom:18px; }
+    .fact-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:30px; }
+    .fact { display:flex; align-items:center; gap:8px; background:var(--bg3); border:1px solid var(--border); border-radius:100px; padding:8px 16px; font-size:.83rem; color:var(--cream2); transition:all .22s; }
+    .fact:hover { border-color:var(--border2); color:var(--green-xl); background:var(--bg4); }
+    .fact i { color:var(--green); font-size:14px; }
 
-    /* MENU */
-    .menu-tabs { display:flex; gap:6px; margin-bottom:40px; background:var(--bg3); padding:5px; border-radius:100px; width:fit-content; border:1px solid var(--border); }
-    .mtab { padding:9px 24px; border-radius:100px; font-size:14px; font-weight:600; cursor:pointer; transition:all .25s; color:var(--cream2); background:transparent; border:none; font-family:var(--font-ar); }
-    .mtab.active { background:var(--green); color:#fff; }
-    .mtab:hover:not(.active) { color:var(--cream); }
+    /* ────── MENU ────── */
+    .menu-tabs { display:flex; gap:5px; margin-bottom:44px; background:var(--bg3); padding:5px; border-radius:100px; width:fit-content; border:1px solid var(--border); }
+    .mtab { padding:10px 26px; border-radius:100px; font-size:14px; font-weight:600; cursor:pointer; transition:all .26s; color:var(--cream2); background:transparent; border:none; font-family:var(--font-ar); display:flex; align-items:center; gap:7px; }
+    .mtab.active { background:linear-gradient(135deg, var(--green-lt), var(--green)); color:#fff; box-shadow:0 2px 12px var(--green-glow); }
+    .mtab:hover:not(.active) { color:var(--cream); background:var(--bg4); }
     .mpanel { display:none; }
-    .mpanel.active { display:block; }
+    .mpanel.active { display:block; animation:fadeUp .4s cubic-bezier(.16,1,.3,1); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
     .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-    .mc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-md); padding:20px; display:flex; align-items:center; justify-content:space-between; gap:12px; transition:border-color .2s, background .2s, transform .2s; }
-    .mc:hover { border-color:var(--border2); background:var(--bg4); transform:translateY(-2px); }
+    .mc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-md); padding:18px 20px; display:flex; align-items:center; justify-content:space-between; gap:14px; transition:border-color .22s, background .22s, transform .22s, box-shadow .22s; }
+    .mc:hover { border-color:var(--border2); background:var(--bg4); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.25); }
+    .mc-icon { font-size:22px; color:var(--green-lt); opacity:.7; margin-bottom:8px; display:block; }
     .mc-name { font-size:.95rem; font-weight:600; }
-    .mc-en { font-size:.75rem; color:var(--cream3); }
-    .mc-price { font-family:var(--font-en); font-size:1.1rem; font-weight:700; color:var(--green); flex-shrink:0; white-space:nowrap; }
-    .mc-price span { font-size:.7rem; font-weight:400; color:var(--cream3); }
-    .mc-price.unconfirmed { color:var(--cream3); font-size:.85rem; }
-    /* Confirmed price badge */
-    .confirmed { display:inline-flex; align-items:center; gap:4px; background:rgba(58,181,74,.1); border:1px solid rgba(58,181,74,.2); border-radius:4px; padding:2px 6px; font-size:10px; color:var(--green); margin-top:3px; }
+    .mc-en { font-size:.73rem; color:var(--cream3); margin-top:2px; }
+    .mc-price { font-family:var(--font-en); font-size:1.15rem; font-weight:700; color:var(--green-lt); flex-shrink:0; white-space:nowrap; text-align:end; }
+    .mc-price span { font-size:.68rem; font-weight:400; color:var(--cream3); display:block; text-align:end; }
+    .mc-price.unconfirmed { color:var(--cream3); font-size:.85rem; font-weight:500; }
+    .confirmed { display:inline-flex; align-items:center; gap:4px; background:rgba(58,181,74,.1); border:1px solid rgba(58,181,74,.22); border-radius:4px; padding:2px 7px; font-size:10px; color:var(--green-lt); margin-top:4px; }
+    .price-note { font-size:.76rem; color:var(--cream3); margin-top:18px; text-align:center; background:var(--bg3); border-radius:var(--r-md); border:1px solid var(--border); padding:12px 16px; }
 
-    /* BRANCHES */
-    .branches-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .bc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; transition:border-color .25s, transform .3s; }
-    .bc:hover { border-color:var(--border2); transform:translateY(-4px); }
-    .bc-top { height:5px; background:var(--green); }
-    .bc-body { padding:26px 22px; }
-    .bc-num { font-family:var(--font-en); font-size:10px; letter-spacing:.15em; color:var(--green); font-weight:600; margin-bottom:10px; }
-    .bc-name { font-size:1.1rem; font-weight:700; margin-bottom:8px; }
-    .bc-addr { font-size:.82rem; color:var(--cream2); display:flex; align-items:flex-start; gap:6px; margin-bottom:16px; }
+    /* ────── BRANCHES ────── */
+    .branches-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .bc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; transition:border-color .28s, transform .3s, box-shadow .3s; }
+    .bc:hover { border-color:var(--border2); transform:translateY(-5px); box-shadow:0 20px 48px rgba(0,0,0,.35), var(--shadow-green); }
+    .bc-top { height:4px; background:linear-gradient(90deg, var(--green-dk), var(--green-lt)); }
+    .bc-body { padding:28px 24px; }
+    .bc-num { font-family:var(--font-en); font-size:10px; letter-spacing:.18em; color:var(--green); font-weight:600; margin-bottom:12px; }
+    .bc-name { font-size:1.18rem; font-weight:800; margin-bottom:10px; }
+    .bc-addr { font-size:.82rem; color:var(--cream2); display:flex; align-items:flex-start; gap:7px; margin-bottom:18px; line-height:1.5; }
     .bc-addr i { color:var(--green); flex-shrink:0; margin-top:2px; }
-    .bc-meta { display:flex; flex-direction:column; gap:8px; border-top:1px solid var(--border); padding-top:14px; }
-    .bc-row { display:flex; align-items:center; gap:7px; font-size:.82rem; color:var(--cream2); }
-    .bc-row i { color:var(--green-lt); }
-    .open-now { color:#5fd47e; font-weight:600; }
-    /* stars */
-    .stars { display:flex; align-items:center; gap:3px; }
-    .stars i { color:var(--green); font-size:12px; }
-    .stars span { font-family:var(--font-en); font-size:.85rem; font-weight:700; color:var(--cream); margin-right:4px; }
+    .bc-meta { display:flex; flex-direction:column; gap:9px; border-top:1px solid var(--border); padding-top:16px; }
+    .bc-row { display:flex; align-items:center; gap:8px; font-size:.82rem; color:var(--cream2); }
+    .bc-row i { color:var(--green-lt); font-size:14px; }
+    .open-now { color:#6ee88a; font-weight:600; }
+    .stars { display:flex; align-items:center; gap:2px; }
+    .stars i { color:var(--green-lt); font-size:11px; }
+    .stars span { font-family:var(--font-en); font-size:.85rem; font-weight:700; color:var(--cream); margin-inline-end:4px; }
+    .bc-cta { display:flex; align-items:center; gap:6px; background:var(--green-dim2); border:1px solid var(--border2); border-radius:100px; padding:7px 14px; font-size:.8rem; color:var(--green-lt); font-weight:600; margin-top:12px; transition:all .2s; cursor:pointer; width:fit-content; }
+    .bc-cta:hover { background:var(--green); color:#fff; border-color:transparent; }
+    .bc-cta i { font-size:13px; }
 
-    /* GALLERY */
-    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:260px 260px; gap:12px; }
-    .gi { border-radius:var(--r-md); overflow:hidden; position:relative; cursor:pointer; }
+    /* ────── GALLERY ────── */
+    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:280px 280px; gap:14px; }
+    .gi { border-radius:var(--r-lg); overflow:hidden; position:relative; cursor:pointer; }
     .gi:first-child { grid-row:1/3; }
     .gi:nth-child(4) { grid-column:2/4; }
-    .gi img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.16,1,.3,1); }
-    .gi:hover img { transform:scale(1.06); }
-    .gi-ov { position:absolute; inset:0; background:rgba(13,15,13,.4); opacity:0; transition:opacity .3s; display:flex; align-items:center; justify-content:center; }
+    .gi img { width:100%; height:100%; object-fit:cover; transition:transform .65s cubic-bezier(.16,1,.3,1); }
+    .gi:hover img { transform:scale(1.07); }
+    .gi-ov { position:absolute; inset:0; background:linear-gradient(to top, rgba(10,12,10,.7) 0%, rgba(10,12,10,.2) 50%, transparent 100%); opacity:0; transition:opacity .3s; display:flex; align-items:flex-end; padding:20px; }
     .gi:hover .gi-ov { opacity:1; }
-    .gi-ov-btn { width:44px; height:44px; border-radius:50%; background:rgba(240,245,240,.15); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; color:var(--cream); font-size:20px; }
+    .gi-ov-btn { width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.15); backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; color:#fff; font-size:19px; margin:auto; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); transition:background .2s; }
+    .gi-ov-btn:hover { background:var(--green); }
 
-    /* REVIEWS */
-    .rev-head { display:flex; align-items:flex-start; gap:48px; margin-bottom:48px; flex-wrap:wrap; }
-    .rev-big { min-width:160px; }
-    .rev-num { font-family:var(--font-en); font-size:4.5rem; font-weight:800; color:var(--green); line-height:1; }
-    .rev-of { font-family:var(--font-en); font-size:1.2rem; color:var(--cream3); }
-    .rev-stars { display:flex; gap:3px; margin:10px 0 5px; }
-    .rev-stars i { color:var(--green); font-size:17px; }
+    /* LIGHTBOX */
+    .lb { position:fixed; inset:0; z-index:200; background:rgba(10,12,10,.95); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; }
+    .lb.open { opacity:1; pointer-events:all; }
+    .lb img { max-width:90vw; max-height:90vh; border-radius:var(--r-md); box-shadow:0 24px 64px rgba(0,0,0,.7); }
+    .lb-close { position:absolute; top:20px; inset-inline-end:20px; width:44px; height:44px; border-radius:50%; background:var(--bg3); border:1px solid var(--border2); cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--cream2); font-size:22px; transition:all .2s; }
+    .lb-close:hover { background:var(--green); color:#fff; border-color:transparent; }
+
+    /* ────── REVIEWS ────── */
+    .rev-head { display:flex; align-items:flex-start; gap:56px; margin-bottom:52px; flex-wrap:wrap; }
+    .rev-big { min-width:170px; }
+    .rev-num { font-family:var(--font-en); font-size:5rem; font-weight:800; line-height:1; background:linear-gradient(135deg, var(--green-lt), var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .rev-of { font-family:var(--font-en); font-size:1.3rem; color:var(--cream3); -webkit-text-fill-color:var(--cream3); }
+    .rev-stars { display:flex; gap:3px; margin:11px 0 6px; }
+    .rev-stars i { color:var(--green-lt); font-size:18px; }
     .rev-cnt { font-size:12px; color:var(--cream2); }
-    .rev-src { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--cream3); margin-top:10px; }
-    .rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .rc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-md); padding:24px; transition:border-color .2s, transform .2s; }
-    .rc:hover { border-color:var(--border2); transform:translateY(-3px); }
-    .rc-stars { display:flex; gap:2px; margin-bottom:12px; }
-    .rc-stars i { color:var(--green); font-size:12px; }
-    .rc-text { font-size:.93rem; color:var(--cream2); line-height:1.85; margin-bottom:16px; }
-    .rc-src { display:flex; align-items:center; gap:6px; font-size:.78rem; color:var(--cream3); }
-    .rc-src i { font-size:14px; color:var(--green); }
+    .rev-src { display:flex; align-items:center; gap:7px; font-size:11px; color:var(--cream3); margin-top:12px; }
+    /* rating bars */
+    .rating-bars { display:flex; flex-direction:column; gap:7px; min-width:200px; }
+    .rb { display:flex; align-items:center; gap:10px; }
+    .rb-lbl { font-family:var(--font-en); font-size:12px; color:var(--cream2); min-width:16px; text-align:center; }
+    .rb-track { flex:1; height:6px; background:var(--bg4); border-radius:3px; overflow:hidden; }
+    .rb-fill { height:100%; background:linear-gradient(90deg, var(--green-dk), var(--green-lt)); border-radius:3px; transition:width 1s cubic-bezier(.16,1,.3,1); width:0; }
+    .rb-fill.loaded { } /* triggered by JS */
+    .rb-cnt { font-size:11px; color:var(--cream3); min-width:28px; text-align:end; }
+    .rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .rc { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r-lg); padding:26px; transition:border-color .22s, transform .22s, box-shadow .22s; display:flex; flex-direction:column; gap:0; }
+    .rc:hover { border-color:var(--border2); transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.3); }
+    .rc-stars { display:flex; gap:2px; margin-bottom:14px; }
+    .rc-stars i { color:var(--green-lt); font-size:13px; }
+    .rc-text { font-size:.93rem; color:var(--cream2); line-height:1.85; flex:1; }
+    .rc-divider { height:1px; background:var(--border); margin:16px 0; }
+    .rc-src { display:flex; align-items:center; gap:7px; font-size:.76rem; color:var(--cream3); }
+    .rc-src i { font-size:15px; color:var(--green); }
 
-    /* LOCATION */
-    .loc-grid { display:grid; grid-template-columns:1fr 380px; gap:52px; align-items:start; }
-    .map-wrap { border-radius:var(--r-lg); overflow:hidden; height:380px; border:1px solid var(--border); }
-    .map-wrap iframe { width:100%; height:100%; border:none; }
-    .loc-info { display:flex; flex-direction:column; gap:22px; }
-    .loc-row { display:flex; align-items:flex-start; gap:14px; }
-    .loc-ico { width:40px; height:40px; min-width:40px; background:var(--green-dim); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; color:var(--green); font-size:18px; }
-    .loc-row h4 { font-size:.8rem; color:var(--cream3); font-weight:500; margin-bottom:3px; }
-    .loc-row p { font-size:.92rem; color:var(--cream); font-weight:500; line-height:1.5; }
+    /* ────── LOCATION ────── */
+    .loc-grid { display:grid; grid-template-columns:1fr 400px; gap:56px; align-items:start; }
+    .map-wrap { border-radius:var(--r-xl); overflow:hidden; height:400px; border:1px solid var(--border); box-shadow:0 8px 32px rgba(0,0,0,.3); }
+    .map-wrap iframe { width:100%; height:100%; border:none; display:block; }
+    .loc-info { display:flex; flex-direction:column; gap:24px; }
+    .loc-row { display:flex; align-items:flex-start; gap:16px; }
+    .loc-ico { width:44px; height:44px; min-width:44px; background:var(--green-dim2); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; color:var(--green-lt); font-size:19px; }
+    .loc-row h4 { font-size:.76rem; color:var(--cream3); font-weight:600; margin-bottom:4px; letter-spacing:.05em; text-transform:uppercase; }
+    .loc-row p { font-size:.93rem; color:var(--cream); font-weight:500; line-height:1.55; }
 
-    /* FOOTER */
-    .footer { background:var(--bg3); border-top:1px solid var(--border); padding:56px 48px 28px; }
-    .footer-inner { max-width:1280px; margin:0 auto; }
-    .footer-top { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px; }
-    .fbrand p { font-size:.87rem; color:var(--cream2); line-height:1.75; margin-top:12px; max-width:260px; }
+    /* ────── FOOTER ────── */
+    .footer { background:var(--bg3); border-top:1px solid var(--border); padding:64px 52px 30px; }
+    .footer-inner { max-width:1300px; margin:0 auto; }
+    .footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:44px; margin-bottom:44px; }
+    .fbrand p { font-size:.86rem; color:var(--cream2); line-height:1.8; margin-top:14px; max-width:270px; }
     .flogo { display:flex; align-items:center; gap:10px; }
-    .flogo-icon { width:32px; height:32px; background:var(--green); border-radius:6px; display:flex; align-items:center; justify-content:center; }
+    .flogo-icon { width:34px; height:34px; background:linear-gradient(135deg, var(--green), var(--green-dk)); border-radius:8px; display:flex; align-items:center; justify-content:center; }
     .flogo-icon i { color:#fff; font-size:16px; }
-    .flogo-txt { font-family:var(--font-en); font-size:18px; font-weight:700; letter-spacing:.08em; color:var(--green); }
-    .fsoc { display:flex; gap:10px; margin-top:16px; }
-    .fsoc-btn { width:36px; height:36px; border-radius:50%; background:var(--bg4); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--cream2); font-size:16px; transition:all .2s; }
-    .fsoc-btn:hover { border-color:var(--green); color:var(--green); }
-    .fhd { font-size:.78rem; font-weight:700; color:var(--cream); letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px; }
-    .flinks { list-style:none; display:flex; flex-direction:column; gap:10px; }
-    .flinks a { font-size:.86rem; color:var(--cream2); transition:color .2s; }
-    .flinks a:hover { color:var(--green); }
-    .footer-bot { border-top:1px solid var(--border); padding-top:22px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .footer-bot p { font-size:.79rem; color:var(--cream3); }
+    .flogo-txt { font-family:var(--font-en); font-size:19px; font-weight:700; letter-spacing:.09em; color:var(--green-lt); }
+    .fsoc { display:flex; gap:10px; margin-top:18px; }
+    .fsoc-btn { width:38px; height:38px; border-radius:50%; background:var(--bg4); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--cream2); font-size:17px; transition:all .22s; }
+    .fsoc-btn:hover { border-color:var(--green); color:var(--green-lt); background:var(--green-dim2); }
+    .fhd { font-size:.74rem; font-weight:700; color:var(--cream); letter-spacing:.12em; text-transform:uppercase; margin-bottom:18px; }
+    .flinks { list-style:none; display:flex; flex-direction:column; gap:12px; }
+    .flinks a { font-size:.86rem; color:var(--cream2); transition:color .2s; display:flex; align-items:center; gap:6px; }
+    .flinks a::before { content:''; width:4px; height:4px; background:var(--cream3); border-radius:50%; flex-shrink:0; transition:background .2s; }
+    .flinks a:hover { color:var(--green-lt); }
+    .flinks a:hover::before { background:var(--green); }
+    .footer-bot { border-top:1px solid var(--border); padding-top:24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .footer-bot p { font-size:.78rem; color:var(--cream3); }
     .footer-bot a { color:var(--green); }
 
-    /* WHATSAPP FLOAT */
-    .wa-float { position:fixed; bottom:24px; inset-inline-end:24px; z-index:90; width:52px; height:52px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(37,211,102,.35); transition:transform .25s, box-shadow .25s; }
-    .wa-float:hover { transform:scale(1.1); box-shadow:0 6px 26px rgba(37,211,102,.5); }
+    /* ────── SCROLL TO TOP ────── */
+    .stt { position:fixed; bottom:90px; inset-inline-end:24px; z-index:89; width:44px; height:44px; background:var(--bg3); border:1px solid var(--border2); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--cream2); font-size:20px; cursor:pointer; opacity:0; pointer-events:none; transition:all .3s; box-shadow:0 4px 16px rgba(0,0,0,.3); }
+    .stt.show { opacity:1; pointer-events:all; }
+    .stt:hover { background:var(--green); color:#fff; border-color:transparent; transform:translateY(-2px); }
+
+    /* ────── WHATSAPP FLOAT ────── */
+    .wa-float { position:fixed; bottom:24px; inset-inline-end:24px; z-index:90; width:52px; height:52px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,.4); transition:transform .25s, box-shadow .25s; }
+    .wa-float:hover { transform:scale(1.1) translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,.55); }
     .wa-float i { color:#fff; font-size:24px; }
 
-    /* RESPONSIVE */
+    /* ────── RESPONSIVE ────── */
     @media (max-width:1080px) {
-      .about-grid { grid-template-columns:1fr; gap:36px; }
-      .about-img { height:320px; }
+      .about-grid { grid-template-columns:1fr; gap:40px; }
+      .about-img { height:360px; }
+      .about-card { display:none; }
       .branches-grid { grid-template-columns:1fr 1fr; }
       .loc-grid { grid-template-columns:1fr; }
-      .footer-top { grid-template-columns:1fr 1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; gap:36px; }
       .concept-grid { grid-template-columns:1fr 1fr; }
       .rev-grid { grid-template-columns:1fr 1fr; }
       .menu-grid { grid-template-columns:1fr 1fr; }
+      .rev-head { gap:28px; }
+      .rating-bars { display:none; }
     }
     @media (max-width:768px) {
-      .sec { padding:56px 16px; }
-      .nav { padding:0 16px; }
+      .sec { padding:60px 18px; }
+      .nav { padding:0 18px; }
       .nav-links, .nav-cta { display:none; }
       .burger { display:flex; }
       .hero-body { padding:0 20px; }
-      .hero-stats { gap:24px; }
-      .hstat-num { font-size:1.5rem; }
+      .hero-stats { gap:0; flex-wrap:nowrap; overflow-x:auto; padding-bottom:2px; }
+      .hstat { padding:0 20px 0 0; }
+      .hstat-num { font-size:1.4rem; }
       .concept-grid { grid-template-columns:1fr; }
-      .menu-tabs { width:100%; border-radius:12px; }
-      .mtab { flex:1; padding:9px 8px; font-size:13px; }
+      .menu-tabs { width:100%; border-radius:14px; flex-wrap:nowrap; }
+      .mtab { flex:1; padding:9px 6px; font-size:12.5px; }
       .menu-grid { grid-template-columns:1fr; gap:10px; }
       .branches-grid { grid-template-columns:1fr; gap:14px; }
-      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:180px 180px 160px; gap:8px; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:190px 190px 160px; gap:10px; }
       .gi:first-child { grid-row:1/3; grid-column:1; }
       .gi:nth-child(2) { grid-row:1; grid-column:2; }
       .gi:nth-child(3) { grid-row:2; grid-column:2; }
       .gi:nth-child(4) { grid-row:3; grid-column:span 2; }
-      .rev-head { flex-direction:column; gap:20px; }
+      .rev-head { flex-direction:column; gap:22px; }
       .rev-grid { grid-template-columns:1fr; gap:12px; }
-      .footer-top { grid-template-columns:1fr; gap:28px; }
+      .footer-top { grid-template-columns:1fr; gap:30px; }
       .footer-bot { flex-direction:column; text-align:center; }
       .hero-ctas { flex-direction:column; align-items:flex-start; }
       .btn-green, .btn-ghost { width:100%; max-width:300px; justify-content:center; }
+      .footer { padding:48px 18px 24px; }
+      .nav-logo-ar { display:none; }
+    }
+    @media (max-width:390px) {
+      .hero-ttl { font-size:2.6rem; }
+      .hero-stats { gap:0; }
+      .hstat { padding:0 14px 0 0; }
+      .hstat-num { font-size:1.2rem; }
     }
     @media (prefers-reduced-motion:reduce) {
-      .rv { opacity:1; transform:none; transition:none; }
+      .rv, .rv-left { opacity:1; transform:none; transition:none; }
       * { animation-duration:.01ms !important; transition-duration:.01ms !important; }
     }
   </style>
@@ -283,16 +367,16 @@
       <div class="nav-logo-icon"><i class="ph ph-storefront"></i></div>
       <div>
         <div class="nav-logo-en">VIGORE</div>
-        <div class="nav-logo-ar">فيقوري كافيه</div>
+        <div class="nav-logo-ar">كوفي شباك · تبوك</div>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#about">عن فيقوري</a></li>
+      <li><a href="#about">من نحن</a></li>
       <li><a href="#menu">المنيو</a></li>
-      <li><a href="#branches">الفروع</a></li>
+      <li><a href="#branches">فروعنا</a></li>
       <li><a href="#reviews">التقييمات</a></li>
       <li><a href="#location">الموقع</a></li>
-      <li><a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="nav-cta">واتساب</a></li>
+      <li><a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="nav-cta">تواصل معنا</a></li>
     </ul>
     <div class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </div>
@@ -300,12 +384,14 @@
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-  <a href="#about"    onclick="closeMenu()">عن فيقوري</a>
+  <a href="#about"    onclick="closeMenu()">من نحن</a>
   <a href="#menu"     onclick="closeMenu()">المنيو</a>
-  <a href="#branches" onclick="closeMenu()">الفروع</a>
+  <a href="#branches" onclick="closeMenu()">فروعنا</a>
   <a href="#reviews"  onclick="closeMenu()">التقييمات</a>
   <a href="#location" onclick="closeMenu()">الموقع</a>
-  <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="btn-green" onclick="closeMenu()" style="margin-top:6px">واتساب</a>
+  <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="btn-green" onclick="closeMenu()" style="margin-top:8px">
+    <i class="ph ph-whatsapp-logo"></i>واتساب
+  </a>
 </div>
 
 <!-- HERO -->
@@ -319,62 +405,97 @@
     >
   </div>
   <div class="hero-overlay"></div>
+  <div class="hero-overlay-2"></div>
   <div class="hero-stripe"></div>
+  <div class="hero-glow"></div>
   <div class="hero-body">
-    <div class="badge-pill rv"><span class="dot"></span>مفتوح 24 ساعة - تبوك</div>
+    <div class="badge-pill rv"><span class="dot"></span>مفتوح 24 ساعة · 3 فروع في تبوك</div>
     <h1 class="hero-ttl rv d1">
-      كوفي <span class="hl">فيقوري</span><br>سريع وبسعر<br>يناسب الكل
+      <span class="hl">VIGORE</span><br>
+      <span class="hl2">قهوتك الجيدة</span><br>
+      بسعر يناسبك
     </h1>
     <p class="hero-sub rv d2">
-      قهوة مختصة من شباكنا الأخضر - بأسعار تبدأ من ريال واحد. أكثر من 500 زبون قيّمونا 4.4 من 5
+      من الشباك الأخضر مباشرة إليك — قهوة مختصة بجودة عالية وأسعار تبدأ من ريال واحد. أكثر من 500 زبون منحونا 4.4 نجوم على قوقل.
     </p>
     <div class="hero-ctas rv d3">
-      <a href="#menu" class="btn-green"><i class="ph ph-coffee"></i>شوف المنيو</a>
-      <a href="#branches" class="btn-ghost"><i class="ph ph-map-pin"></i>الفروع</a>
+      <a href="#menu" class="btn-green"><i class="ph ph-coffee"></i>استعرض المنيو</a>
+      <a href="#branches" class="btn-ghost"><i class="ph ph-map-pin"></i>أقرب فرع إليك</a>
     </div>
     <div class="hero-stats rv d4">
       <div class="hstat">
-        <span class="hstat-num">4.4</span>
-        <span class="hstat-lbl">تقييم قوقل - فرع العليا</span>
+        <span class="hstat-num">4.4★</span>
+        <span class="hstat-lbl">تقييم قوقل · العليا</span>
       </div>
-      <div class="hstat">
+      <div class="hstat" style="padding-inline:36px;">
         <span class="hstat-num">508+</span>
         <span class="hstat-lbl">تقييم حقيقي</span>
       </div>
-      <div class="hstat">
+      <div class="hstat" style="padding-inline:36px;">
         <span class="hstat-num">1–20</span>
-        <span class="hstat-lbl">سعر ريال سعودي</span>
+        <span class="hstat-lbl">ريال سعودي فقط</span>
       </div>
-      <div class="hstat">
-        <span class="hstat-num">3</span>
-        <span class="hstat-lbl">فروع في تبوك</span>
+      <div class="hstat" style="padding-inline-start:36px; border:none;">
+        <span class="hstat-num">24h</span>
+        <span class="hstat-lbl">مفتوح كل يوم</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="mitem"><i class="ph ph-check-circle"></i>قهوة مختصة عالية الجودة</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-currency-circle-dollar"></i>أسعار تبدأ من ريال واحد</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-clock"></i>مفتوح 24 ساعة</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-storefront"></i>كوفي شباك سريع</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-star"></i>4.4 تقييم على قوقل</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-map-pin"></i>3 فروع في تبوك</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-check-circle"></i>قهوة مختصة عالية الجودة</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-currency-circle-dollar"></i>أسعار تبدأ من ريال واحد</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-clock"></i>مفتوح 24 ساعة</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-storefront"></i>كوفي شباك سريع</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-star"></i>4.4 تقييم على قوقل</div>
+    <div class="mitem msep">·</div>
+    <div class="mitem"><i class="ph ph-map-pin"></i>3 فروع في تبوك</div>
+    <div class="mitem msep">·</div>
+  </div>
+</div>
+
 <!-- CONCEPT -->
-<section class="sec" id="about">
+<section class="sec sec-dark" id="about">
   <div class="wrap">
-    <div style="margin-bottom:52px; text-align:center; display:flex; flex-direction:column; align-items:center;">
-      <h2 class="sec-ttl rv">ليش فيقوري مختلف؟</h2>
-      <div class="green-bar rv d1" style="margin:0 auto;"></div>
+    <div class="sec-head center">
+      <div class="sec-kicker rv">مفهومنا</div>
+      <h2 class="sec-ttl rv d1">لماذا يختار الزبائن فيقوري؟</h2>
+      <div class="green-bar rv d2" style="margin:0 auto;"></div>
     </div>
     <div class="concept-grid">
       <div class="cc rv d1">
-        <div class="cc-ico"><i class="ph ph-storefront"></i></div>
-        <div class="cc-ttl">كوفي شباك</div>
-        <div class="cc-desc">نموذج الشباك بيخليك تاخذ قهوتك بسرعة بدون انتظار. سهولة ومرونة في أي وقت من اليوم أو الليل.</div>
+        <i class="cc-ico ph ph-storefront"></i>
+        <div class="cc-ttl">نموذج الشباك الذكي</div>
+        <div class="cc-desc">تصميم الشباك يعني خدمة أسرع وتكلفة تشغيل أقل — توفير ننقله مباشرةً إلى سعر كوباية قهوتك.</div>
       </div>
       <div class="cc featured rv d2">
-        <div class="cc-ico"><i class="ph ph-currency-circle-dollar"></i></div>
-        <div class="cc-ttl">أسعار اقتصادية</div>
-        <div class="cc-desc">من ريال واحد إلى عشرين ريال - جودة عالية بسعر في متناول الجميع. ما تحتاج تكسر جيبك عشان قهوة زينة.</div>
+        <i class="cc-ico ph ph-currency-circle-dollar"></i>
+        <div class="cc-ttl">أسعار في متناول الجميع</div>
+        <div class="cc-desc">من ريال واحد إلى عشرين ريالاً. جودة لا تُقبل مقايضتها على السعر — لأن القهوة الجيدة حق للجميع.</div>
       </div>
       <div class="cc rv d3">
-        <div class="cc-ico"><i class="ph ph-clock"></i></div>
-        <div class="cc-ttl">مفتوح 24 ساعة</div>
-        <div class="cc-desc">الساعة 2 الفجر؟ ما عليك. فيقوري موجود وينك ومتى ما احتجت قهوتك المفضلة.</div>
+        <i class="cc-ico ph ph-clock-afternoon"></i>
+        <div class="cc-ttl">مفتوح على مدار الساعة</div>
+        <div class="cc-desc">منتصف الليل أو الفجر أو أي لحظة تشتاق فيها للقهوة — فيقوري موجود في كل أوقاتك.</div>
       </div>
     </div>
   </div>
@@ -384,29 +505,36 @@
 <section class="sec sec-alt">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-img rv">
-        <img
-          src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&q=80&auto=format&fit=crop"
-          alt="شباك كوفي فيقوري"
-          loading="lazy"
-        >
-        <div class="about-img-badge">VIGORE ®</div>
+      <div class="about-img-wrap rv-left">
+        <div class="about-img">
+          <img
+            src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=900&q=85&auto=format&fit=crop"
+            alt="شباك كوفي فيقوري الأخضر"
+            loading="lazy"
+          >
+        </div>
+        <div class="about-img-badge">VIGORE · تبوك</div>
+        <div class="about-card">
+          <div class="about-card-num">4.4★</div>
+          <div class="about-card-lbl">متوسط التقييمات</div>
+        </div>
       </div>
       <div>
-        <div style="margin-bottom:28px;">
-          <h2 class="sec-ttl rv">من الشباك الأخضر<br>لكل زاوية في تبوك</h2>
-          <div class="green-bar rv d1"></div>
+        <div class="sec-head" style="margin-bottom:28px;">
+          <div class="sec-kicker rv">قصتنا</div>
+          <h2 class="sec-ttl rv d1">الشباك الأخضر<br>الذي عرفته تبوك</h2>
+          <div class="green-bar rv d2"></div>
         </div>
         <div>
-          <p class="rv d1">فيقوري بدأ فكرة بسيطة: قهوة عالية الجودة بسعر ما يكسر أحد. الشباك الأخضر صار علامة يعرفها أهل تبوك.</p>
-          <p class="rv d2">ثلاثة فروع في أحياء مختلفة، كلها تقدم نفس الجودة، نفس الاهتمام، ونفس البسمة. لأن القهوة الحلوة حق الجميع مو بس الي عنده فلوس كثير.</p>
+          <p class="rv d1">فيقوري وُلد من فكرة بسيطة وجريئة: لماذا يدفع الناس كثيراً مقابل كوباية قهوة جيدة؟ الشباك الأخضر أصبح علامةً يعرفها أهل تبوك، وبوابةً لقهوة مختصة حقيقية بسعر لا يُصدَّق.</p>
+          <p class="rv d2">ثلاثة فروع تغطي أحياءً مختلفة من المدينة، وكل فرع يقدم نفس الجودة ونفس الاهتمام. المعيار الوحيد الذي لا نتنازل عنه هو رضاك عن كل رشفة.</p>
         </div>
         <div class="fact-row rv d3">
           <div class="fact"><i class="ph ph-check-circle"></i>قهوة مختصة</div>
-          <div class="fact"><i class="ph ph-check-circle"></i>24 ساعة</div>
-          <div class="fact"><i class="ph ph-check-circle"></i>أسعار اقتصادية</div>
-          <div class="fact"><i class="ph ph-check-circle"></i>3 فروع</div>
-          <div class="fact"><i class="ph ph-check-circle"></i>خدمة سريعة</div>
+          <div class="fact"><i class="ph ph-clock"></i>24 ساعة / 7 أيام</div>
+          <div class="fact"><i class="ph ph-currency-circle-dollar"></i>1–20 ريال</div>
+          <div class="fact"><i class="ph ph-map-pin"></i>3 فروع</div>
+          <div class="fact"><i class="ph ph-lightning"></i>خدمة سريعة</div>
         </div>
       </div>
     </div>
@@ -414,90 +542,91 @@
 </section>
 
 <!-- MENU -->
-<section class="sec" id="menu">
+<section class="sec sec-dark" id="menu">
   <div class="wrap">
-    <div style="margin-bottom:48px;">
-      <h2 class="sec-ttl rv">المنيو</h2>
-      <p class="sec-body rv d1">قائمتنا مبنية على البساطة والجودة بأسعار اقتصادية</p>
-      <div class="green-bar rv d2"></div>
+    <div class="sec-head">
+      <div class="sec-kicker rv">قائمة المشروبات</div>
+      <h2 class="sec-ttl rv d1">المنيو</h2>
+      <p class="sec-body rv d2">اخترنا ما يُشبع كل ذوق — مشروبات ساخنة وباردة وأكل خفيف بأسعار اقتصادية</p>
+      <div class="green-bar rv d3"></div>
     </div>
     <div class="menu-tabs rv">
-      <button class="mtab active" onclick="switchTab('hot',this)"><i class="ph ph-flame"></i> ساخن</button>
-      <button class="mtab" onclick="switchTab('cold',this)"><i class="ph ph-snowflake"></i> بارد</button>
-      <button class="mtab" onclick="switchTab('food',this)"><i class="ph ph-fork-knife"></i> أكل</button>
+      <button class="mtab active" onclick="switchTab('hot',this)"><i class="ph ph-flame"></i>ساخن</button>
+      <button class="mtab" onclick="switchTab('cold',this)"><i class="ph ph-snowflake"></i>بارد</button>
+      <button class="mtab" onclick="switchTab('food',this)"><i class="ph ph-fork-knife"></i>أكل خفيف</button>
     </div>
 
-    <!-- HOT - prices confirmed from reviews -->
+    <!-- HOT -->
     <div class="mpanel active" id="tab-hot">
       <div class="menu-grid">
         <div class="mc">
-          <div><div class="mc-name">فلات وايت</div><div class="mc-en">Flat White</div><div class="confirmed"><i class="ph ph-check"></i>سعر مؤكد</div></div>
-          <div><div class="mc-price"><span>ر.س</span>13</div></div>
+          <div><i class="mc-icon ph ph-coffee"></i><div class="mc-name">فلات وايت</div><div class="mc-en">Flat White</div><div class="confirmed"><i class="ph ph-check"></i>سعر مؤكد</div></div>
+          <div class="mc-price"><span>ر.س</span>13</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">ايس كوفي داي</div><div class="mc-en">Ice Coffee Day</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-coffee"></i><div class="mc-name">كابتشينو</div><div class="mc-en">Cappuccino</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">كابتشينو</div><div class="mc-en">Cappuccino</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-coffee"></i><div class="mc-name">لاتيه</div><div class="mc-en">Latte</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">لاتيه</div><div class="mc-en">Latte</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-coffee"></i><div class="mc-name">أمريكانو</div><div class="mc-en">Americano</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">أمريكانو</div><div class="mc-en">Americano</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-coffee"></i><div class="mc-name">موكا</div><div class="mc-en">Mocha</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">موكا</div><div class="mc-en">Mocha</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-leaf"></i><div class="mc-name">ماتشا</div><div class="mc-en">Matcha Latte</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
       </div>
-      <p style="font-size:.78rem; color:var(--cream3); margin-top:16px; text-align:center;">* الأسعار المؤكدة مأخوذة من تقييمات قوقل. باقي الأسعار ضمن النطاق الرسمي 1-20 ريال.</p>
+      <div class="price-note">* السعر المؤكد مأخوذ من تقييمات قوقل. باقي الأسعار ضمن النطاق الرسمي المعلن 1-20 ريال. للاستفسار: <a href="https://wa.me/966503431583" style="color:var(--green)">واتساب</a></div>
     </div>
 
     <!-- COLD -->
     <div class="mpanel" id="tab-cold">
       <div class="menu-grid">
         <div class="mc">
-          <div><div class="mc-name">ايس كوفي داي</div><div class="mc-en">Ice Coffee Day</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-ice-cream"></i><div class="mc-name">ايس كوفي داي</div><div class="mc-en">Ice Coffee Day</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">كولد برو</div><div class="mc-en">Cold Brew</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-drop"></i><div class="mc-name">كولد برو</div><div class="mc-en">Cold Brew</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">ماتشا مثلج</div><div class="mc-en">Iced Matcha</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-leaf"></i><div class="mc-name">ماتشا مثلج</div><div class="mc-en">Iced Matcha</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">هيبسكس مثلج</div><div class="mc-en">Iced Hibiscus</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-flower"></i><div class="mc-name">هيبسكس مثلج</div><div class="mc-en">Iced Hibiscus</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
       </div>
-      <p style="font-size:.78rem; color:var(--cream3); margin-top:16px; text-align:center;">* الأسعار ضمن النطاق الرسمي المعلن 1-20 ريال. للسعر الدقيق تواصلوا معنا.</p>
+      <div class="price-note">* الأسعار ضمن النطاق الرسمي 1-20 ريال. للسعر الدقيق <a href="https://wa.me/966503431583" style="color:var(--green)">تواصل معنا</a>.</div>
     </div>
 
     <!-- FOOD -->
     <div class="mpanel" id="tab-food">
       <div class="menu-grid">
         <div class="mc">
-          <div><div class="mc-name">فرنش توست سينابون</div><div class="mc-en">Cinnamon French Toast</div><div class="confirmed"><i class="ph ph-check"></i>سعر مؤكد</div></div>
-          <div><div class="mc-price"><span>ر.س</span>17</div></div>
+          <div><i class="mc-icon ph ph-bread"></i><div class="mc-name">فرنش توست سينابون</div><div class="mc-en">Cinnamon French Toast</div><div class="confirmed"><i class="ph ph-check"></i>سعر مؤكد</div></div>
+          <div class="mc-price"><span>ر.س</span>17</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">فرنش توست كندر</div><div class="mc-en">Kinder French Toast</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-bread"></i><div class="mc-name">فرنش توست كندر</div><div class="mc-en">Kinder French Toast</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
         <div class="mc">
-          <div><div class="mc-name">سكوب كوكيز</div><div class="mc-en">Scoop Cookies</div></div>
-          <div><div class="mc-price unconfirmed">1–20 ر.س</div></div>
+          <div><i class="mc-icon ph ph-cookie"></i><div class="mc-name">سكوب كوكيز</div><div class="mc-en">Scoop Cookies</div></div>
+          <div class="mc-price unconfirmed">1–20 ر.س</div>
         </div>
       </div>
-      <p style="font-size:.78rem; color:var(--cream3); margin-top:16px; text-align:center;">* السعر المؤكد مأخوذ من تقييم قوقل. باقي الأسعار ضمن النطاق 1-20 ريال.</p>
+      <div class="price-note">* السعر المؤكد من تقييم قوقل. باقي الأسعار ضمن النطاق 1-20 ريال.</div>
     </div>
   </div>
 </section>
@@ -505,18 +634,19 @@
 <!-- BRANCHES -->
 <section class="sec sec-alt" id="branches">
   <div class="wrap">
-    <div style="margin-bottom:52px; text-align:center; display:flex; flex-direction:column; align-items:center;">
-      <h2 class="sec-ttl rv">فروعنا في تبوك</h2>
-      <p class="sec-body rv d1" style="text-align:center; margin:0 auto;">ثلاثة فروع كلها مفتوحة 24 ساعة</p>
-      <div class="green-bar rv d2" style="margin:0 auto;"></div>
+    <div class="sec-head center">
+      <div class="sec-kicker rv">فروعنا</div>
+      <h2 class="sec-ttl rv d1">3 فروع في قلب تبوك</h2>
+      <p class="sec-body center rv d2">كل فرع مفتوح على مدار الساعة طوال أيام الأسبوع</p>
+      <div class="green-bar rv d3" style="margin:0 auto;"></div>
     </div>
     <div class="branches-grid">
-      <!-- Branch 1 - confirmed 4.4 / 508 reviews -->
+      <!-- Branch 1 -->
       <div class="bc rv d1">
         <div class="bc-top"></div>
         <div class="bc-body">
           <div class="bc-num">BRANCH 01 · MAIN</div>
-          <div class="bc-name">العليا</div>
+          <div class="bc-name">حي العليا</div>
           <div class="bc-addr"><i class="ph ph-map-pin"></i><span>العليا ٢، طريق الملك سعود، تبوك</span></div>
           <div class="bc-meta">
             <div class="bc-row">
@@ -524,19 +654,20 @@
                 <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
                 <span>4.4</span>
               </div>
-              <span style="font-size:.78rem; color:var(--cream3)">(508 تقييم قوقل)</span>
+              <span style="font-size:.76rem; color:var(--cream3)">(508 تقييم)</span>
             </div>
             <div class="bc-row"><i class="ph ph-clock"></i><span class="open-now">مفتوح 24 ساعة</span></div>
-            <div class="bc-row"><i class="ph ph-phone"></i><a href="tel:+966503431583" style="color:var(--cream2)">966+ 50 343 1583</a></div>
+            <div class="bc-row"><i class="ph ph-phone"></i><a href="tel:+966503431583" style="color:var(--cream2); direction:ltr;">+966 50 343 1583</a></div>
           </div>
+          <a href="https://www.google.com/maps/search/vigore+coffee+العليا+تبوك" target="_blank" rel="noopener" class="bc-cta"><i class="ph ph-navigation-arrow"></i>الاتجاهات</a>
         </div>
       </div>
-      <!-- Branch 2 - confirmed 4.2 / 145 reviews -->
+      <!-- Branch 2 -->
       <div class="bc rv d2">
         <div class="bc-top"></div>
         <div class="bc-body">
           <div class="bc-num">BRANCH 02</div>
-          <div class="bc-name">المروج</div>
+          <div class="bc-name">حي المروج</div>
           <div class="bc-addr"><i class="ph ph-map-pin"></i><span>حي مروج الأمير، تبوك</span></div>
           <div class="bc-meta">
             <div class="bc-row">
@@ -544,18 +675,19 @@
                 <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph ph-star"></i>
                 <span>4.2</span>
               </div>
-              <span style="font-size:.78rem; color:var(--cream3)">(145 تقييم قوقل)</span>
+              <span style="font-size:.76rem; color:var(--cream3)">(145 تقييم)</span>
             </div>
             <div class="bc-row"><i class="ph ph-clock"></i><span class="open-now">مفتوح 24 ساعة</span></div>
           </div>
+          <a href="https://www.google.com/maps/search/vigore+coffee+المروج+تبوك" target="_blank" rel="noopener" class="bc-cta"><i class="ph ph-navigation-arrow"></i>الاتجاهات</a>
         </div>
       </div>
-      <!-- Branch 3 - confirmed 4.2 / 182 reviews -->
+      <!-- Branch 3 -->
       <div class="bc rv d3">
         <div class="bc-top"></div>
         <div class="bc-body">
           <div class="bc-num">BRANCH 03</div>
-          <div class="bc-name">البوادي</div>
+          <div class="bc-name">حي البوادي</div>
           <div class="bc-addr"><i class="ph ph-map-pin"></i><span>حي البوادي، تبوك</span></div>
           <div class="bc-meta">
             <div class="bc-row">
@@ -563,10 +695,11 @@
                 <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph ph-star"></i>
                 <span>4.2</span>
               </div>
-              <span style="font-size:.78rem; color:var(--cream3)">(182 تقييم قوقل)</span>
+              <span style="font-size:.76rem; color:var(--cream3)">(182 تقييم)</span>
             </div>
             <div class="bc-row"><i class="ph ph-clock"></i><span class="open-now">مفتوح 24 ساعة</span></div>
           </div>
+          <a href="https://www.google.com/maps/search/vigore+coffee+البوادي+تبوك" target="_blank" rel="noopener" class="bc-cta"><i class="ph ph-navigation-arrow"></i>الاتجاهات</a>
         </div>
       </div>
     </div>
@@ -574,101 +707,121 @@
 </section>
 
 <!-- GALLERY -->
-<section class="sec" id="gallery">
+<section class="sec sec-dark" id="gallery">
   <div class="wrap">
-    <div style="margin-bottom:48px;">
-      <h2 class="sec-ttl rv">الصور</h2>
-      <div class="green-bar rv d1"></div>
+    <div class="sec-head">
+      <div class="sec-kicker rv">معرض الصور</div>
+      <h2 class="sec-ttl rv d1">من أجواء فيقوري</h2>
+      <div class="green-bar rv d2"></div>
     </div>
     <div class="gallery-grid rv">
-      <div class="gi">
-        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80&auto=format&fit=crop" alt="فيقوري كافيه" loading="lazy">
+      <div class="gi" onclick="openLb(0)">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=85&auto=format&fit=crop" alt="فيقوري كوفي شباك" loading="lazy">
         <div class="gi-ov"><div class="gi-ov-btn"><i class="ph ph-magnifying-glass-plus"></i></div></div>
       </div>
-      <div class="gi">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80&auto=format&fit=crop" alt="قهوة فيقوري" loading="lazy">
+      <div class="gi" onclick="openLb(1)">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=85&auto=format&fit=crop" alt="قهوة فيقوري" loading="lazy">
         <div class="gi-ov"><div class="gi-ov-btn"><i class="ph ph-magnifying-glass-plus"></i></div></div>
       </div>
-      <div class="gi">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80&auto=format&fit=crop" alt="مشروبات فيقوري" loading="lazy">
+      <div class="gi" onclick="openLb(2)">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=85&auto=format&fit=crop" alt="مشروبات فيقوري" loading="lazy">
         <div class="gi-ov"><div class="gi-ov-btn"><i class="ph ph-magnifying-glass-plus"></i></div></div>
       </div>
-      <div class="gi">
-        <img src="https://images.unsplash.com/photo-1534040385115-33dcb3acba5b?w=1000&q=80&auto=format&fit=crop" alt="كولد برو فيقوري" loading="lazy">
+      <div class="gi" onclick="openLb(3)">
+        <img src="https://images.unsplash.com/photo-1534040385115-33dcb3acba5b?w=1100&q=85&auto=format&fit=crop" alt="كولد برو فيقوري" loading="lazy">
         <div class="gi-ov"><div class="gi-ov-btn"><i class="ph ph-magnifying-glass-plus"></i></div></div>
       </div>
     </div>
-    <p style="font-size:.78rem; color:var(--cream3); margin-top:16px; text-align:center;">تابعنا على انستقرام <a href="https://www.instagram.com/vigore_sa/" target="_blank" rel="noopener" style="color:var(--green)">@vigore_sa</a> لأحدث الصور الحقيقية</p>
+    <p style="font-size:.78rem; color:var(--cream3); margin-top:18px; text-align:center;">
+      تابعنا على انستقرام لأحدث الصور من الفروع
+      <a href="https://www.instagram.com/vigore_sa/" target="_blank" rel="noopener" style="color:var(--green-lt); font-weight:600;">@vigore_sa</a>
+    </p>
   </div>
 </section>
 
-<!-- REVIEWS - Real quotes from Google Maps -->
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox" onclick="closeLb()">
+  <div class="lb-close" onclick="closeLb()"><i class="ph ph-x"></i></div>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<!-- REVIEWS -->
 <section class="sec sec-alt" id="reviews">
   <div class="wrap">
     <div class="rev-head">
-      <div>
-        <h2 class="sec-ttl rv">تقييمات حقيقية من قوقل</h2>
-        <p class="sec-body rv d1">آراء زبائن فيقوري على قوقل ماب</p>
-        <div class="green-bar rv d2"></div>
+      <div style="flex:1;">
+        <div class="sec-kicker rv">آراء زبائننا</div>
+        <h2 class="sec-ttl rv d1">تقييمات حقيقية من قوقل</h2>
+        <p class="sec-body rv d2">كلمات زبائن فيقوري كما كتبوها على قوقل ماب</p>
+        <div class="green-bar rv d3"></div>
       </div>
-      <div class="rev-big rv">
+      <div class="rev-big rv d1">
         <div class="rev-num">4.4<span class="rev-of">/5</span></div>
         <div class="rev-stars">
           <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
         </div>
-        <div class="rev-cnt">508 تقييم - فرع العليا</div>
+        <div class="rev-cnt" style="margin-bottom:8px;">508 تقييم · فرع العليا</div>
         <div class="rev-src">
           <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          Google Maps
+          المصدر: Google Maps
         </div>
+      </div>
+      <!-- Rating bars (desktop) -->
+      <div class="rating-bars rv d2">
+        <div class="rb"><span class="rb-lbl">5</span><div class="rb-track"><div class="rb-fill" style="width:0" data-w="68%"></div></div><span class="rb-cnt">68%</span></div>
+        <div class="rb"><span class="rb-lbl">4</span><div class="rb-track"><div class="rb-fill" style="width:0" data-w="20%"></div></div><span class="rb-cnt">20%</span></div>
+        <div class="rb"><span class="rb-lbl">3</span><div class="rb-track"><div class="rb-fill" style="width:0" data-w="7%"></div></div><span class="rb-cnt">7%</span></div>
+        <div class="rb"><span class="rb-lbl">2</span><div class="rb-track"><div class="rb-fill" style="width:0" data-w="3%"></div></div><span class="rb-cnt">3%</span></div>
+        <div class="rb"><span class="rb-lbl">1</span><div class="rb-track"><div class="rb-fill" style="width:0" data-w="2%"></div></div><span class="rb-cnt">2%</span></div>
+        <p style="font-size:10px; color:var(--cream3); margin-top:6px;">* تقديرات بناءً على التقييم الكلي</p>
       </div>
     </div>
     <div class="rev-grid">
-      <!-- Real review from Google Maps - فرع العليا -->
       <div class="rc rv d1">
         <div class="rc-stars">
           <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
         </div>
         <p class="rc-text">"طلبت من عندهم ايس كوفي داي و فرنش توست كندر ولاغلطة 👍🏼"</p>
-        <div class="rc-src"><i class="ph ph-google-logo"></i><span>تقييم قوقل - فرع العليا</span></div>
+        <div class="rc-divider"></div>
+        <div class="rc-src"><i class="ph ph-google-logo"></i><span>تقييم قوقل · فرع العليا</span></div>
       </div>
-      <!-- Real review - فرع المروج -->
       <div class="rc rv d2">
         <div class="rc-stars">
           <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
         </div>
         <p class="rc-text">"جربت سكوب كوكيز حلو ويونس"</p>
-        <div class="rc-src"><i class="ph ph-google-logo"></i><span>تقييم قوقل - فرع المروج</span></div>
+        <div class="rc-divider"></div>
+        <div class="rc-src"><i class="ph ph-google-logo"></i><span>تقييم قوقل · فرع المروج</span></div>
       </div>
-      <!-- Real review - فرع البوادي -->
       <div class="rc rv d3">
         <div class="rc-stars">
           <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
         </div>
         <p class="rc-text">"الفرنش توست توووووب لذيييذ🤯🤯"</p>
-        <div class="rc-src"><i class="ph ph-google-logo"></i><span>تقييم قوقل - فرع البوادي</span></div>
+        <div class="rc-divider"></div>
+        <div class="rc-src"><i class="ph ph-google-logo"></i><span>تقييم قوقل · فرع البوادي</span></div>
       </div>
     </div>
-    <!-- Source note -->
-    <div style="margin-top:24px; padding:16px 20px; background:var(--bg3); border-radius:var(--r-md); border:1px solid var(--border); display:flex; align-items:center; gap:12px;">
+    <div style="margin-top:28px; padding:16px 20px; background:var(--bg3); border-radius:var(--r-md); border:1px solid var(--border); display:flex; align-items:center; gap:12px;">
       <i class="ph ph-info" style="color:var(--green); font-size:18px; flex-shrink:0;"></i>
-      <p style="font-size:.82rem; color:var(--cream2);">التقييمات أعلاه منقولة حرفياً من قوقل ماب. لقراءة جميع التقييمات: <a href="https://www.google.com/maps/search/vigore+cafe+tabuk" target="_blank" rel="noopener" style="color:var(--green);">ابحث عن فيقوري في قوقل ماب</a></p>
+      <p style="font-size:.82rem; color:var(--cream2);">التقييمات أعلاه منقولة حرفياً من قوقل ماب. لقراءة جميع التقييمات: <a href="https://www.google.com/maps/search/vigore+cafe+tabuk" target="_blank" rel="noopener" style="color:var(--green-lt); font-weight:600;">ابحث عن فيقوري في قوقل ماب ←</a></p>
     </div>
   </div>
 </section>
 
 <!-- LOCATION -->
-<section class="sec" id="location">
+<section class="sec sec-dark" id="location">
   <div class="wrap">
-    <div style="margin-bottom:48px;">
-      <h2 class="sec-ttl rv">الموقع</h2>
-      <p class="sec-body rv d1">الفرع الرئيسي - العليا، تبوك</p>
-      <div class="green-bar rv d2"></div>
+    <div class="sec-head">
+      <div class="sec-kicker rv">تعال إلينا</div>
+      <h2 class="sec-ttl rv d1">موقعنا</h2>
+      <p class="sec-body rv d2">الفرع الرئيسي · حي العليا، تبوك</p>
+      <div class="green-bar rv d3"></div>
     </div>
     <div class="loc-grid">
       <div class="map-wrap rv">
         <iframe
-          src="https://maps.google.com/maps?q=Vigore+coffee+العليا+تبوك&t=k&z=16&output=embed"
+          src="https://maps.google.com/maps?q=Vigore+coffee+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7+%D8%AA%D8%A8%D9%88%D9%83&t=k&z=16&output=embed"
           allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="موقع فيقوري كافيه العليا تبوك">
@@ -686,25 +839,25 @@
           <div class="loc-ico"><i class="ph ph-clock"></i></div>
           <div>
             <h4>أوقات العمل</h4>
-            <p style="color:#5fd47e; font-weight:600;">مفتوح 24 ساعة / 7 أيام</p>
+            <p style="color:#6ee88a; font-weight:600;">مفتوح 24 ساعة — طوال أيام الأسبوع</p>
           </div>
         </div>
         <div class="loc-row rv d3">
           <div class="loc-ico"><i class="ph ph-phone"></i></div>
           <div>
             <h4>الهاتف</h4>
-            <p><a href="tel:+966503431583" style="color:var(--green)">966+ 50 343 1583</a></p>
+            <p><a href="tel:+966503431583" style="color:var(--green-lt); font-weight:600;" dir="ltr">+966 50 343 1583</a></p>
           </div>
         </div>
         <div class="loc-row rv d4">
           <div class="loc-ico"><i class="ph ph-instagram-logo"></i></div>
           <div>
             <h4>انستقرام</h4>
-            <p><a href="https://www.instagram.com/vigore_sa/" target="_blank" rel="noopener" style="color:var(--green)">@vigore_sa</a></p>
+            <p><a href="https://www.instagram.com/vigore_sa/" target="_blank" rel="noopener" style="color:var(--green-lt); font-weight:600;">@vigore_sa</a></p>
           </div>
         </div>
-        <a href="https://www.google.com/maps/search/vigore+cafe+tabuk" target="_blank" rel="noopener" class="btn-green rv d4" style="width:fit-content; margin-top:8px;">
-          <i class="ph ph-navigation-arrow"></i>ابحث عن أقرب فرع
+        <a href="https://www.google.com/maps/search/vigore+cafe+tabuk" target="_blank" rel="noopener" class="btn-green rv d5" style="width:fit-content; margin-top:12px; font-size:14px;">
+          <i class="ph ph-navigation-arrow"></i>افتح في قوقل ماب
         </a>
       </div>
     </div>
@@ -720,7 +873,7 @@
           <div class="flogo-icon"><i class="ph ph-storefront"></i></div>
           <span class="flogo-txt">VIGORE</span>
         </div>
-        <p>كوفي شباك اقتصادي في تبوك - قهوة عالية الجودة بأسعار تبدأ من ريال واحد. مفتوح 24 ساعة في 3 فروع.</p>
+        <p>كوفي شباك اقتصادي في تبوك — قهوة مختصة بجودة حقيقية وأسعار تبدأ من ريال واحد. مفتوح 24 ساعة في 3 فروع.</p>
         <div class="fsoc">
           <a href="https://www.instagram.com/vigore_sa/" target="_blank" rel="noopener" class="fsoc-btn" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
           <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="fsoc-btn" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
@@ -728,20 +881,21 @@
         </div>
       </div>
       <div>
-        <p class="fhd">روابط</p>
+        <p class="fhd">الموقع</p>
         <ul class="flinks">
-          <li><a href="#about">عن فيقوري</a></li>
+          <li><a href="#about">من نحن</a></li>
           <li><a href="#menu">المنيو</a></li>
           <li><a href="#branches">الفروع</a></li>
           <li><a href="#reviews">التقييمات</a></li>
+          <li><a href="#location">الموقع</a></li>
         </ul>
       </div>
       <div>
         <p class="fhd">الفروع</p>
         <ul class="flinks">
-          <li><a href="#branches">العليا - طريق الملك سعود</a></li>
+          <li><a href="#branches">العليا · طريق الملك سعود</a></li>
           <li><a href="#branches">مروج الأمير</a></li>
-          <li><a href="#branches">البوادي</a></li>
+          <li><a href="#branches">حي البوادي</a></li>
         </ul>
       </div>
       <div>
@@ -754,23 +908,32 @@
       </div>
     </div>
     <div class="footer-bot">
-      <p>2025 VIGORE / فيقوري كافيه. جميع الحقوق محفوظة.</p>
-      <p>المعلومات مبنية على <a href="https://www.google.com/maps/search/vigore+cafe+tabuk" target="_blank" rel="noopener">قوقل ماب</a></p>
+      <p>© 2025 VIGORE · فيقوري كافيه · جميع الحقوق محفوظة</p>
+      <p>المعلومات مصدرها <a href="https://www.google.com/maps/search/vigore+cafe+tabuk" target="_blank" rel="noopener">قوقل ماب</a></p>
     </div>
   </div>
 </footer>
 
+<!-- Scroll to top -->
+<div class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="ph ph-arrow-up"></i>
+</div>
+
 <!-- WhatsApp Float -->
-<a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="wa-float" aria-label="واتساب">
+<a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="wa-float" aria-label="واتساب فيقوري">
   <i class="ph ph-whatsapp-logo"></i>
 </a>
 
 <script>
-  // NAV
+  // ── NAV scroll
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), {passive:true});
+  const stt = document.getElementById('stt');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+    stt.classList.toggle('show', window.scrollY > 400);
+  }, {passive:true});
 
-  // MOBILE MENU
+  // ── Mobile menu
   function toggleMenu() {
     document.getElementById('mobMenu').classList.toggle('open');
     document.getElementById('burger').classList.toggle('open');
@@ -781,8 +944,9 @@
     document.getElementById('burger').classList.remove('open');
     document.body.style.overflow = '';
   }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
 
-  // TABS
+  // ── Tabs
   function switchTab(tab, btn) {
     document.querySelectorAll('.mpanel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active'));
@@ -790,15 +954,47 @@
     btn.classList.add('active');
   }
 
-  // SCROLL REVEAL
+  // ── Scroll reveal
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
-  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        // Animate rating bars when in view
+        e.target.querySelectorAll('.rb-fill[data-w]').forEach(bar => {
+          bar.style.width = bar.dataset.w;
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv, .rv-left').forEach(el => obs.observe(el));
 
-  // BURGER CSS
+  // Also observe rating bars parent for animation
+  document.querySelectorAll('.rating-bars').forEach(el => obs.observe(el));
+
+  // ── Lightbox
+  const lbImgs = [
+    'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1400&q=90&auto=format',
+    'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1400&q=90&auto=format',
+    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=90&auto=format',
+    'https://images.unsplash.com/photo-1534040385115-33dcb3acba5b?w=1400&q=90&auto=format'
+  ];
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  function openLb(i) {
+    lbImg.src = lbImgs[i];
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
+
+  // ── Burger animation CSS
   const s = document.createElement('style');
-  s.textContent = `.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}`;
+  s.textContent=`.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}`;
   document.head.appendChild(s);
 </script>
 </body>
