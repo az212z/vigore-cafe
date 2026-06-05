@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فيقوري كافيه | VIGORE - تبوك</title>
+  <meta name="description" content="فيقوري كافيه - تخصصي قهوة هادئة في تبوك. أجواء هادئة، بدون موسيقى، مناسب للدراسة. أربع فروع في العليا والبوادي وتبوك الجديدة ومروج الأمير." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg-base:       #0c1a10;
+      --bg-mid:        #121f16;
+      --bg-elevated:   #182d1c;
+      --bg-surface:    #1e3522;
+
+      --accent:        #b8742a;
+      --accent-light:  #d4924e;
+      --accent-faint:  rgba(184, 116, 42, 0.12);
+      --accent-glow:   rgba(184, 116, 42, 0.25);
+
+      --text-primary:  #f0ebe0;
+      --text-muted:    #8a9e8d;
+      --text-faint:    #5a6e5c;
+
+      --border:        rgba(240, 235, 224, 0.08);
+      --border-mid:    rgba(240, 235, 224, 0.14);
+
+      --radius-sm:     6px;
+      --radius-md:     12px;
+      --radius-lg:     20px;
+      --radius-pill:   999px;
+
+      --font-ar: 'Cairo', sans-serif;
+      --font-en: 'Space Grotesk', sans-serif;
+
+      --nav-h: 72px;
+    }
+
+    /* ─── RESET ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-ar);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ─── UTILITIES ───────────────────────────────────────────── */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-pad { padding: 96px 0; }
+    .section-pad-sm { padding: 72px 0; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── SECTION LABEL ───────────────────────────────────────── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-family: var(--font-en);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      inset-inline: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav.scrolled {
+      background: rgba(12, 26, 16, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    /* Logo SVG */
+    .nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .nav-logo-svg { width: 44px; height: 44px; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-en {
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.1em;
+      color: var(--text-primary);
+    }
+    .nav-logo-ar {
+      font-family: var(--font-ar);
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--accent-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      inset-inline-start: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 22px;
+      background: var(--accent);
+      color: var(--bg-base);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      transition: background 0.25s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent-light); }
+    .nav-cta:active { transform: scale(0.97); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      inset-inline: 0;
+      bottom: 0;
+      background: rgba(12, 26, 16, 0.97);
+      backdrop-filter: blur(24px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent-light); }
+    .mobile-menu .nav-cta { font-size: 16px; padding: 12px 32px; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* ─── HERO ────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=85');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(12, 26, 16, 0.45) 0%,
+        rgba(12, 26, 16, 0.15) 35%,
+        rgba(12, 26, 16, 0.7) 70%,
+        rgba(12, 26, 16, 0.95) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-logo {
+      margin-bottom: 28px;
+    }
+    .hero-logo-svg { width: 80px; height: 80px; }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-family: var(--font-ar);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+    .hero-title .accent { color: var(--accent-light); }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: var(--bg-base);
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      transition: background 0.25s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-primary:active { transform: scale(0.97); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border: 1px solid var(--border-mid);
+      color: var(--text-primary);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      transition: border-color 0.25s, background 0.25s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); background: var(--accent-faint); }
+    .btn-ghost:active { transform: scale(0.97); }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 80px;
+      inset-inline-end: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .hero-stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(18, 31, 22, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+    .hero-stat-pill i { color: var(--accent-light); font-size: 16px; }
+
+    @media (max-width: 768px) {
+      .hero { align-items: flex-end; padding-bottom: 60px; }
+      .hero-stats {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 28px;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────────── */
+    .about { background: var(--bg-base); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-img-wrap:hover img { transform: scale(1.03); }
+    .about-img-badge {
+      position: absolute;
+      bottom: 24px;
+      inset-inline-start: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(12, 26, 16, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+    .about-img-badge i { color: var(--accent-light); }
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-mid);
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .about-feature:hover {
+      border-color: var(--accent);
+      background: var(--bg-elevated);
+    }
+    .about-feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .about-feature-icon i { font-size: 22px; color: var(--accent-light); }
+    .about-feature-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--text-primary);
+    }
+    .about-feature-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .section-body {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 480px;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-wrap img { height: 340px; }
+    }
+
+    /* ─── MENU ────────────────────────────────────────────────── */
+    .menu-section { background: var(--bg-mid); }
+
+    .menu-header { text-align: center; margin-bottom: 48px; }
+    .menu-header .section-body { margin: 0 auto; }
+
+    .menu-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .menu-tab {
+      padding: 10px 28px;
+      border-radius: var(--radius-pill);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: transparent;
+      transition: all 0.25s;
+      font-family: var(--font-ar);
+    }
+    .menu-tab:hover { color: var(--text-primary); border-color: var(--border-mid); }
+    .menu-tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg-base);
+    }
+
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.25s, transform 0.25s, background 0.25s;
+    }
+    .menu-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-surface);
+      transform: translateY(-2px);
+    }
+
+    .menu-card-info {}
+    .menu-card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .menu-card-sizes {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .menu-size-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+    }
+
+    .menu-card-price {
+      font-family: var(--font-en);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-light);
+      flex-shrink: 0;
+      text-align: end;
+      line-height: 1;
+    }
+    .menu-card-price .sr {
+      display: block;
+      font-size: 11px;
+      color: var(--text-faint);
+      font-weight: 400;
+      margin-top: 3px;
+      text-align: end;
+    }
+    .menu-card-price-range {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .menu-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .menu-card { padding: 16px; }
+    }
+    @media (max-width: 400px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── BRANCHES ────────────────────────────────────────────── */
+    .branches-section { background: var(--bg-base); }
+
+    .branches-header { text-align: center; margin-bottom: 56px; }
+    .branches-header .section-body { margin: 0 auto; }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .branch-card {
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .branch-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+    .branch-card-header {
+      height: 6px;
+      background: var(--accent);
+    }
+    .branch-card-body { padding: 28px; }
+
+    .branch-number {
+      font-family: var(--font-en);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--accent-light);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .branch-name {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .branch-address {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .branch-address i { color: var(--accent); font-size: 15px; flex-shrink: 0; }
+
+    .branch-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .branch-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .branch-meta-row i { color: var(--accent-light); font-size: 15px; flex-shrink: 0; }
+    .branch-meta-row .highlight { color: #5fd47e; font-weight: 600; }
+    .branch-meta-row .today-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      background: rgba(95, 212, 126, 0.12);
+      border: 1px solid rgba(95, 212, 126, 0.25);
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      color: #5fd47e;
+    }
+
+    @media (max-width: 720px) {
+      .branches-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── GALLERY ─────────────────────────────────────────────── */
+    .gallery-section { background: var(--bg-mid); overflow: hidden; }
+
+    .gallery-header { text-align: center; margin-bottom: 48px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+      grid-template-rows: 300px 200px;
+      gap: 12px;
+    }
+    .gallery-cell {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+    .gallery-cell:nth-child(1) { grid-row: 1 / 3; }
+    .gallery-cell:nth-child(4) { grid-row: 1 / 3; }
+    .gallery-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .gallery-cell:hover img { transform: scale(1.05); }
+    .gallery-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,26,16,0.5) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-cell:hover .gallery-cell-overlay { opacity: 1; }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 220px 220px;
+      }
+      .gallery-cell:nth-child(1),
+      .gallery-cell:nth-child(4) { grid-row: auto; }
+    }
+    @media (max-width: 500px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 180px);
+      }
+    }
+
+    /* ─── REVIEWS ─────────────────────────────────────────────── */
+    .reviews-section { background: var(--bg-base); }
+
+    .reviews-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+    .reviews-rating-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .reviews-rating-num {
+      font-family: var(--font-en);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+    .reviews-stars {
+      display: flex;
+      gap: 4px;
+    }
+    .reviews-stars i { color: var(--accent-light); font-size: 20px; }
+    .reviews-stars i.half { color: var(--accent); }
+    .reviews-platform {
+      font-size: 12px;
+      color: var(--text-faint);
+      letter-spacing: 0.06em;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: border-color 0.25s;
+    }
+    .review-card:hover { border-color: var(--accent); }
+
+    .review-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .review-stars i { color: var(--accent-light); font-size: 14px; }
+
+    .review-text {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-light);
+      flex-shrink: 0;
+    }
+    .review-author-info {}
+    .review-author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .review-author-meta {
+      font-size: 12px;
+      color: var(--text-faint);
+    }
+
+    @media (max-width: 720px) {
+      .reviews-header-row { flex-direction: column-reverse; align-items: flex-start; }
+      .reviews-rating-block { align-items: flex-start; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── LOCATION ────────────────────────────────────────────── */
+    .location-section { background: var(--bg-mid); }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .location-info {}
+    .location-hours { margin-top: 36px; }
+    .location-hours h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .location-hours h3 i { color: var(--accent-light); }
+
+    .hours-list { display: flex; flex-direction: column; gap: 0; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: var(--text-muted); font-weight: 500; }
+    .hours-time { color: var(--text-primary); font-family: var(--font-en); font-size: 13px; }
+    .hours-row.today .hours-day { color: var(--accent-light); font-weight: 700; }
+    .hours-row.today .hours-time { color: var(--accent-light); }
+    .today-dot {
+      width: 7px;
+      height: 7px;
+      background: #5fd47e;
+      border-radius: 50%;
+      display: inline-block;
+      margin-inline-end: 6px;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .today-dot { animation: none; }
+    }
+
+    .hours-closed { color: var(--text-faint); font-size: 13px; font-style: italic; }
+
+    .location-contact { margin-top: 32px; }
+    .location-contact h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .location-contact h3 i { color: var(--accent-light); }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--text-primary); }
+    .contact-link i { color: var(--accent-light); font-size: 18px; flex-shrink: 0; }
+
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      height: 440px;
+      background: var(--bg-elevated);
+      position: relative;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .location-grid { grid-template-columns: 1fr; }
+      .map-wrap { height: 320px; }
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    .footer { background: var(--bg-base); padding: 60px 0 36px; border-top: 1px solid var(--border); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+    .footer-brand {}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      max-width: 240px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-mid);
+      background: var(--bg-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent-light); background: var(--accent-faint); }
+    .social-btn i { font-size: 18px; }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a {
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--text-primary); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+    .footer-copy a { color: var(--accent-light); }
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-faint);
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+    }
+    .footer-badge i { font-size: 12px; color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── WHATSAPP FLOAT ──────────────────────────────────────── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      inset-inline-end: 28px;
+      z-index: 90;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+    .whatsapp-float:active { transform: scale(0.96); }
+    .whatsapp-float i { color: #fff; font-size: 26px; }
+
+    /* ─── VIGORE SVG LOGO ─────────────────────────────────────── */
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+
+      <a href="#hero" class="nav-logo" aria-label="فيقوري كافيه - الصفحة الرئيسية">
+        <!-- Vigore SVG Logo with botanical motif -->
+        <svg class="nav-logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" stroke="#b8742a" stroke-width="1.2"/>
+          <!-- Coffee cup -->
+          <path d="M14 18h16l-2 10H16L14 18Z" fill="none" stroke="#d4924e" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M28 20c1.5 0 3 0.7 3 2.5s-1.5 2.5-3 2.5" stroke="#d4924e" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- Steam lines -->
+          <path d="M18 14c0-1.5 2-1.5 2-3" stroke="#8a9e8d" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M22 14c0-1.5 2-1.5 2-3" stroke="#8a9e8d" stroke-width="1.1" stroke-linecap="round"/>
+          <!-- Leaf accent top right -->
+          <path d="M32 10c-2 1-3.5 3-3 5c2-0.5 4-2 3-5Z" fill="#b8742a" fill-opacity="0.7"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="nav-logo-en">VIGORE</span>
+          <span class="nav-logo-ar">فيقوري كافيه</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">عن فيقوري</a></li>
+        <li><a href="#menu">القائمة</a></li>
+        <li><a href="#branches">الفروع</a></li>
+        <li><a href="#gallery">معرض الصور</a></li>
+        <li><a href="#reviews">التقييمات</a></li>
+        <li><a href="#location">تواصل معنا</a></li>
+      </ul>
+
+      <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="nav-cta nav-cta-desktop" aria-label="تواصل معنا عبر واتساب">
+        <i class="ph ph-whatsapp-logo"></i>
+        تواصل معنا
+      </a>
+
+      <button class="nav-hamburger" id="hamburger-btn" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="القائمة الرئيسية">
+    <a href="#about" class="mobile-link">عن فيقوري</a>
+    <a href="#menu" class="mobile-link">القائمة</a>
+    <a href="#branches" class="mobile-link">الفروع</a>
+    <a href="#gallery" class="mobile-link">معرض الصور</a>
+    <a href="#reviews" class="mobile-link">التقييمات</a>
+    <a href="#location" class="mobile-link">تواصل معنا</a>
+    <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="nav-cta">
+      <i class="ph ph-whatsapp-logo"></i>
+      واتساب
+    </a>
+  </div>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container" style="position:relative; z-index:2; width:100%;">
+      <div style="display:grid; grid-template-columns:1fr auto; align-items:flex-end; gap:24px;">
+
+        <div class="hero-content">
+          <div class="hero-logo reveal">
+            <!-- Large hero SVG logo -->
+            <svg class="hero-logo-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="شعار فيقوري">
+              <circle cx="40" cy="40" r="38.5" stroke="#b8742a" stroke-width="1.5"/>
+              <!-- Botanical branch right -->
+              <path d="M56 22c-3 2-5 5.5-4.5 9c3.5-1 6.5-4 4.5-9Z" fill="#b8742a" fill-opacity="0.65"/>
+              <path d="M61 28c-2.5 1.5-3.5 4.5-3 7.5c2.5-1 4.5-3.5 3-7.5Z" fill="#b8742a" fill-opacity="0.45"/>
+              <!-- Coffee cup body -->
+              <path d="M26 32h28l-3.5 18H29.5L26 32Z" fill="none" stroke="#d4924e" stroke-width="1.8" stroke-linejoin="round"/>
+              <!-- Cup handle -->
+              <path d="M50 35.5c3 0 5.5 1.4 5.5 4.5s-2.5 4.5-5.5 4.5" stroke="#d4924e" stroke-width="1.6" stroke-linecap="round"/>
+              <!-- Steam -->
+              <path d="M32 26c0-2.5 3-2.5 3-5" stroke="#8a9e8d" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M40 26c0-2.5 3-2.5 3-5" stroke="#8a9e8d" stroke-width="1.4" stroke-linecap="round"/>
+              <!-- Leaf left -->
+              <path d="M22 24c2.5 1.5 4 4.5 3.5 7.5c-2.5-0.8-4.5-3-3.5-7.5Z" fill="#b8742a" fill-opacity="0.5"/>
+            </svg>
+          </div>
+
+          <h1 class="hero-title reveal reveal-delay-1">
+            قهوة<br><span class="accent">تخصصية</span><br>في تبوك
+          </h1>
+
+          <p class="hero-sub reveal reveal-delay-2">
+            بيئة هادئة، بدون موسيقى، مثالية للدراسة والعمل. قهوة تخصصية بجودة استثنائية في قلب تبوك.
+          </p>
+
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="#menu" class="btn-primary">
+              <i class="ph ph-coffee"></i>
+              تصفح القائمة
+            </a>
+            <a href="#branches" class="btn-ghost">
+              <i class="ph ph-map-pin"></i>
+              الفروع الأربعة
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-stats reveal reveal-delay-4" style="display:flex; flex-direction:column; gap:12px; align-items:flex-end;">
+          <div class="hero-stat-pill">
+            <i class="ph ph-star-fill"></i>
+            <span>4.3 تقييم هنقرستيشن</span>
+          </div>
+          <div class="hero-stat-pill">
+            <i class="ph ph-buildings"></i>
+            <span>4 فروع في تبوك</span>
+          </div>
+          <div class="hero-stat-pill">
+            <i class="ph ph-coffee"></i>
+            <span>قهوة تخصصية</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=800&q=80"
+            alt="كوب قهوة تخصصي في فيقوري كافيه"
+            loading="lazy"
+            width="800"
+            height="500"
+          />
+          <div class="about-img-badge">
+            <i class="ph ph-leaf"></i>
+            تجربة هادئة واستثنائية
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label reveal">عن فيقوري</span>
+          <h2 class="section-heading reveal reveal-delay-1">
+            أكثر من مجرد<br>كوب قهوة
+          </h2>
+          <p class="section-body reveal reveal-delay-2">
+            فيقوري كافيه وجهة القهوة التخصصية في تبوك، نقدم تجربة مختلفة مبنية على الهدوء والجودة وأجواء تساعدك على التركيز.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature reveal reveal-delay-1">
+              <div class="about-feature-icon">
+                <i class="ph ph-speaker-slash"></i>
+              </div>
+              <div class="about-feature-text">
+                <h4>بيئة هادئة بدون موسيقى</h4>
+                <p>نؤمن أن الصمت رفاهية - لا موسيقى، لا ضجيج، فقط جودة القهوة وراحة التفكير.</p>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-2">
+              <div class="about-feature-icon">
+                <i class="ph ph-book-open"></i>
+              </div>
+              <div class="about-feature-text">
+                <h4>مثالي للدراسة والعمل</h4>
+                <p>مناخ مريح وهادئ يجعل من فيقوري المكان المفضل لطلاب الجامعات والعاملين عن بُعد.</p>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-3">
+              <div class="about-feature-icon">
+                <i class="ph ph-users-three"></i>
+              </div>
+              <div class="about-feature-text">
+                <h4>أقسام عائلية مريحة</h4>
+                <p>أقسام مخصصة للعائلات تضمن خصوصية مريحة في أجواء راقية.</p>
+              </div>
+            </div>
+            <div class="about-feature reveal reveal-delay-4">
+              <div class="about-feature-icon">
+                <i class="ph ph-coffee"></i>
+              </div>
+              <div class="about-feature-text">
+                <h4>قهوة تخصصية بجودة عالية</h4>
+                <p>حبوب مختارة بعناية، أساليب تحضير متعددة تشمل V60 وكولد برو والمزيد.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MENU ──────────────────────────────────────────────────── -->
+  <section class="menu-section section-pad" id="menu">
+    <div class="container">
+      <div class="menu-header">
+        <span class="section-label reveal">قائمتنا</span>
+        <h2 class="section-heading reveal reveal-delay-1">كل كوب قصة</h2>
+        <p class="section-body reveal reveal-delay-2">قائمة مختارة بعناية من القهوة الساخنة والباردة والحلويات الطازجة.</p>
+      </div>
+
+      <div class="menu-tabs reveal">
+        <button class="menu-tab active" data-tab="hot" aria-selected="true">
+          <i class="ph ph-fire"></i>
+          &nbsp;ساخن
+        </button>
+        <button class="menu-tab" data-tab="cold" aria-selected="false">
+          <i class="ph ph-snowflake"></i>
+          &nbsp;بارد
+        </button>
+        <button class="menu-tab" data-tab="sweets" aria-selected="false">
+          <i class="ph ph-cake"></i>
+          &nbsp;حلويات
+        </button>
+      </div>
+
+      <!-- HOT -->
+      <div class="menu-panel active" id="panel-hot" role="tabpanel" aria-label="مشروبات ساخنة">
+        <div class="menu-grid">
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">قهوة اليوم</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag">صغير 9 ريال</span>
+                <span class="menu-size-tag">كبير 11 ريال</span>
+              </div>
+            </div>
+            <div class="menu-card-price">
+              9
+              <span class="sr">ريال</span>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">كابتشينو</div>
+            </div>
+            <div class="menu-card-price">15<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">فلات وايت</div>
+            </div>
+            <div class="menu-card-price">15<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">لاتيه</div>
+            </div>
+            <div class="menu-card-price">16<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">موكا وايت</div>
+            </div>
+            <div class="menu-card-price">17<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">V60</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag">تخصصي</span>
+              </div>
+            </div>
+            <div class="menu-card-price">19<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card" style="border-color: var(--accent); background: var(--bg-surface);">
+            <div class="menu-card-info">
+              <div class="menu-card-name">باكس ساخن</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag" style="border-color:var(--accent); color:var(--accent-light);">الخيار الأفضل</span>
+              </div>
+            </div>
+            <div class="menu-card-price">39<span class="sr">ريال</span></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLD -->
+      <div class="menu-panel" id="panel-cold" role="tabpanel" aria-label="مشروبات باردة">
+        <div class="menu-grid">
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">قهوة اليوم باردة</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag">صغير 9 ريال</span>
+                <span class="menu-size-tag">كبير 11 ريال</span>
+              </div>
+            </div>
+            <div class="menu-card-price">9<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">ماتشا مثلج</div>
+            </div>
+            <div class="menu-card-price">19<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">هيبسكس مثلج</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag">صغير 9 ريال</span>
+                <span class="menu-size-tag">كبير 12 ريال</span>
+              </div>
+            </div>
+            <div class="menu-card-price">9<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">كولد برو</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag">تخصصي</span>
+              </div>
+            </div>
+            <div class="menu-card-price">18<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card" style="border-color: var(--accent); background: var(--bg-surface);">
+            <div class="menu-card-info">
+              <div class="menu-card-name">باكس بارد</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag" style="border-color:var(--accent); color:var(--accent-light);">الخيار الأفضل</span>
+              </div>
+            </div>
+            <div class="menu-card-price">39<span class="sr">ريال</span></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SWEETS -->
+      <div class="menu-panel" id="panel-sweets" role="tabpanel" aria-label="حلويات">
+        <div class="menu-grid">
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">كوكيز فيقوري</div>
+            </div>
+            <div class="menu-card-price">9<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">سكوب كوكيز</div>
+            </div>
+            <div class="menu-card-price">21<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card" style="border-color: var(--accent); background: var(--bg-surface);">
+            <div class="menu-card-info">
+              <div class="menu-card-name">تشيزكيك مدريد</div>
+              <div class="menu-card-sizes">
+                <span class="menu-size-tag" style="border-color:var(--accent); color:var(--accent-light);">الأكثر طلبا</span>
+              </div>
+            </div>
+            <div class="menu-card-price">28<span class="sr">ريال</span></div>
+          </div>
+
+          <div class="menu-card">
+            <div class="menu-card-info">
+              <div class="menu-card-name">فرنش توست بالقرفة</div>
+            </div>
+            <div class="menu-card-price">22<span class="sr">ريال</span></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── BRANCHES ──────────────────────────────────────────────── -->
+  <section class="branches-section section-pad" id="branches">
+    <div class="container">
+
+      <div class="branches-header">
+        <span class="section-label reveal">الفروع</span>
+        <h2 class="section-heading reveal reveal-delay-1">أربعة فروع في تبوك</h2>
+        <p class="section-body reveal reveal-delay-2">نجدك في أكثر من مكان - اختر الأقرب إليك.</p>
+      </div>
+
+      <div class="branches-grid" id="branches-grid">
+
+        <div class="branch-card reveal">
+          <div class="branch-card-header"></div>
+          <div class="branch-card-body">
+            <span class="branch-number">BRANCH 01</span>
+            <div class="branch-name">العليا</div>
+            <div class="branch-address">
+              <i class="ph ph-map-pin"></i>
+              طريق الملك سعود، حي العليا، تبوك
+            </div>
+            <div class="branch-meta">
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span id="hours-branch">الأحد - الخميس: 7:00ص - 12:30م &nbsp;|&nbsp; 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الجمعة: 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-check-circle"></i>
+                <span id="today-status-1" class="highlight"></span>
+                <span id="today-badge-1"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-card reveal reveal-delay-1">
+          <div class="branch-card-header"></div>
+          <div class="branch-card-body">
+            <span class="branch-number">BRANCH 02</span>
+            <div class="branch-name">البوادي</div>
+            <div class="branch-address">
+              <i class="ph ph-map-pin"></i>
+              حي البوادي، تبوك
+            </div>
+            <div class="branch-meta">
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الأحد - الخميس: 7:00ص - 12:30م &nbsp;|&nbsp; 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الجمعة: 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-check-circle"></i>
+                <span id="today-status-2" class="highlight"></span>
+                <span id="today-badge-2"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-card reveal reveal-delay-2">
+          <div class="branch-card-header"></div>
+          <div class="branch-card-body">
+            <span class="branch-number">BRANCH 03</span>
+            <div class="branch-name">تبوك الجديدة</div>
+            <div class="branch-address">
+              <i class="ph ph-map-pin"></i>
+              حي تبوك الجديدة، تبوك
+            </div>
+            <div class="branch-meta">
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الأحد - الخميس: 7:00ص - 12:30م &nbsp;|&nbsp; 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الجمعة: 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-check-circle"></i>
+                <span id="today-status-3" class="highlight"></span>
+                <span id="today-badge-3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-card reveal reveal-delay-3">
+          <div class="branch-card-header"></div>
+          <div class="branch-card-body">
+            <span class="branch-number">BRANCH 04</span>
+            <div class="branch-name">مروج الأمير</div>
+            <div class="branch-address">
+              <i class="ph ph-map-pin"></i>
+              حي مروج الأمير، تبوك
+            </div>
+            <div class="branch-meta">
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الأحد - الخميس: 7:00ص - 12:30م &nbsp;|&nbsp; 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-clock"></i>
+                <span>الجمعة: 4:30م - 12:00م</span>
+              </div>
+              <div class="branch-meta-row">
+                <i class="ph ph-check-circle"></i>
+                <span id="today-status-4" class="highlight"></span>
+                <span id="today-badge-4"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ───────────────────────────────────────────────── -->
+  <section class="gallery-section section-pad" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <span class="section-label reveal">معرض الصور</span>
+        <h2 class="section-heading reveal reveal-delay-1">أجواء فيقوري</h2>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <div class="gallery-cell">
+          <img
+            src="https://images.unsplash.com/photo-1507914997893-ef20c9fb3c41?w=800&q=80"
+            alt="داخل فيقوري كافيه"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <div class="gallery-cell-overlay"></div>
+        </div>
+        <div class="gallery-cell">
+          <img
+            src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=800&q=80"
+            alt="فن اللاتيه في فيقوري"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <div class="gallery-cell-overlay"></div>
+        </div>
+        <div class="gallery-cell">
+          <img
+            src="https://images.unsplash.com/photo-1519311726-5083f3f7a310?w=800&q=80"
+            alt="حبوب القهوة التخصصية"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <div class="gallery-cell-overlay"></div>
+        </div>
+        <div class="gallery-cell">
+          <img
+            src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=800&q=80"
+            alt="ديكور فيقوري كافيه"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <div class="gallery-cell-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── REVIEWS ───────────────────────────────────────────────── -->
+  <section class="reviews-section section-pad" id="reviews">
+    <div class="container">
+
+      <div class="reviews-header-row">
+        <div>
+          <span class="section-label reveal">آراء العملاء</span>
+          <h2 class="section-heading reveal reveal-delay-1">ماذا يقول زوارنا</h2>
+        </div>
+        <div class="reviews-rating-block reveal">
+          <div class="reviews-rating-num">4.3</div>
+          <div class="reviews-stars">
+            <i class="ph ph-star-fill"></i>
+            <i class="ph ph-star-fill"></i>
+            <i class="ph ph-star-fill"></i>
+            <i class="ph ph-star-fill"></i>
+            <i class="ph ph-star-half half"></i>
+          </div>
+          <div class="reviews-platform">هنقرستيشن</div>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+          </div>
+          <p class="review-text">
+            من أفضل الكافيهات في تبوك. الجو هادئ جداً ومثالي للدراسة. القهوة ممتازة وخاصة الكولد برو، والموظفون محترفون ومتعاونون.
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">ع</div>
+            <div class="review-author-info">
+              <div class="review-author-name">عبدالعزيز الحربي</div>
+              <div class="review-author-meta">عميل متكرر - العليا</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">
+            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+          </div>
+          <p class="review-text">
+            اكتشفت فيقوري خلال فترة الامتحانات وأصبح مكاني المفضل. البيئة هادئة، لا موسيقى مزعجة، والقهوة تعطيك طاقة للمذاكرة.
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">س</div>
+            <div class="review-author-info">
+              <div class="review-author-name">سارة المطيري</div>
+              <div class="review-author-meta">طالبة جامعية - تبوك الجديدة</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">
+            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star"></i>
+          </div>
+          <p class="review-text">
+            تشيزكيك مدريد خيال، والقهوة تخصصية حقيقية. أسعار معقولة جداً مقارنة بالجودة. أنصح الكل بتجربة V60.
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">م</div>
+            <div class="review-author-info">
+              <div class="review-author-name">محمد العنزي</div>
+              <div class="review-author-meta">عميل دائم - البوادي</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-3">
+          <div class="review-stars">
+            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+          </div>
+          <p class="review-text">
+            كافيه يفهم ماذا يريد العميل. أجواء راقية، الأقسام العائلية واسعة ومريحة، والطاقم يتعامل بأسلوب احترافي. سنكون عملاء دائمين.
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">ن</div>
+            <div class="review-author-info">
+              <div class="review-author-name">نورة الشمري</div>
+              <div class="review-author-meta">زيارة عائلية - مروج الأمير</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LOCATION ──────────────────────────────────────────────── -->
+  <section class="location-section section-pad" id="location">
+    <div class="container">
+      <span class="section-label reveal">الموقع والتواصل</span>
+      <h2 class="section-heading reveal reveal-delay-1" style="margin-bottom:48px;">ابحث عنا في تبوك</h2>
+
+      <div class="location-grid">
+
+        <div class="location-info">
+          <div class="location-hours reveal">
+            <h3><i class="ph ph-clock"></i> ساعات العمل</h3>
+            <div class="hours-list" id="hours-table">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="location-contact reveal reveal-delay-1">
+            <h3><i class="ph ph-phone"></i> تواصل معنا</h3>
+            <div class="contact-links">
+              <a href="tel:+966503431583" class="contact-link">
+                <i class="ph ph-phone"></i>
+                <span dir="ltr">+966 50 343 1583</span>
+              </a>
+              <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="contact-link">
+                <i class="ph ph-whatsapp-logo"></i>
+                <span>واتساب - تواصل فوري</span>
+              </a>
+              <a href="https://www.instagram.com/vigore_sa" target="_blank" rel="noopener" class="contact-link">
+                <i class="ph ph-instagram-logo"></i>
+                <span dir="ltr">@vigore_sa</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap reveal reveal-delay-2">
+          <iframe
+            title="خريطة فيقوري كافيه - العليا تبوك"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.4!2d36.5662!3d28.3835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15a2de7a53cfaabb%3A0x2a3bff7ddc2beec0!2z2KfZiNqC2YjYsdmKINm-2YrZgdmI2LHZiA!5e0!3m2!1sar!2ssa!4v1700000000000!5m2!1sar!2ssa"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer class="footer" id="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo nav-logo" aria-label="فيقوري كافيه">
+            <svg width="38" height="38" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="22" cy="22" r="21" stroke="#b8742a" stroke-width="1.2"/>
+              <path d="M14 18h16l-2 10H16L14 18Z" fill="none" stroke="#d4924e" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M28 20c1.5 0 3 0.7 3 2.5s-1.5 2.5-3 2.5" stroke="#d4924e" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M18 14c0-1.5 2-1.5 2-3" stroke="#8a9e8d" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M22 14c0-1.5 2-1.5 2-3" stroke="#8a9e8d" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M32 10c-2 1-3.5 3-3 5c2-0.5 4-2 3-5Z" fill="#b8742a" fill-opacity="0.7"/>
+            </svg>
+            <div class="nav-logo-text">
+              <span class="nav-logo-en">VIGORE</span>
+              <span class="nav-logo-ar">فيقوري كافيه</span>
+            </div>
+          </a>
+          <p class="footer-tagline">قهوة تخصصية في بيئة هادئة. تبوك، المملكة العربية السعودية.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/vigore_sa" target="_blank" rel="noopener" class="social-btn" aria-label="انستقرام فيقوري">
+              <i class="ph ph-instagram-logo"></i>
+            </a>
+            <a href="https://wa.me/966503431583" target="_blank" rel="noopener" class="social-btn" aria-label="واتساب فيقوري">
+              <i class="ph ph-whatsapp-logo"></i>
+            </a>
+            <a href="tel:+966503431583" class="social-btn" aria-label="اتصل بنا">
+              <i class="ph ph-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>التنقل</h4>
+          <ul>
+            <li><a href="#about">عن فيقوري</a></li>
+            <li><a href="#menu">القائمة</a></li>
+            <li><a href="#branches">الفروع</a></li>
+            <li><a href="#gallery">معرض الصور</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>الفروع</h4>
+          <ul>
+            <li><a href="#branches">العليا - طريق الملك سعود</a></li>
+            <li><a href="#branches">البوادي</a></li>
+            <li><a href="#branches">تبوك الجديدة</a></li>
+            <li><a href="#branches">مروج الأمير</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>تواصل</h4>
+          <ul>
+            <li><a href="tel:+966503431583" dir="ltr">+966 50 343 1583</a></li>
+            <li><a href="https://wa.me/966503431583" target="_blank" rel="noopener">واتساب</a></li>
+            <li><a href="https://www.instagram.com/vigore_sa" target="_blank" rel="noopener">@vigore_sa</a></li>
+            <li><a href="#location">خريطة الموقع</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; <span id="footer-year"></span> VIGORE / فيقوري كافيه. جميع الحقوق محفوظة.
+        </p>
+        <div class="footer-badges">
+          <span class="footer-badge">
+            <i class="ph ph-star-fill"></i>
+            4.3 هنقرستيشن
+          </span>
+          <span class="footer-badge">
+            <i class="ph ph-buildings"></i>
+            4 فروع تبوك
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a
+    href="https://wa.me/966503431583"
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-float"
+    aria-label="تواصل عبر واتساب"
+  >
+    <i class="ph ph-whatsapp-logo"></i>
+  </a>
+
+
+  <!-- ─── SCRIPTS ────────────────────────────────────────────────── -->
+  <script>
+    'use strict';
+
+    // ── NAV SCROLL BEHAVIOR ──────────────────────────────────────
+    const nav = document.getElementById('main-nav');
+    const scrollHandler = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    scrollHandler();
+
+    // ── HAMBURGER / MOBILE MENU ──────────────────────────────────
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      hamburger.setAttribute('aria-expanded', String(menuOpen));
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (menuOpen) toggleMenu();
+      });
+    });
+
+    // ── HERO IMAGE LOAD EFFECT ───────────────────────────────────
+    const heroBg = document.getElementById('hero-bg');
+    const heroImg = new Image();
+    heroImg.src = 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=85';
+    heroImg.onload = () => {
+      heroBg.style.backgroundImage = `url('${heroImg.src}')`;
+      requestAnimationFrame(() => heroBg.classList.add('loaded'));
+    };
+
+    // ── INTERSECTION OBSERVER REVEAL ─────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── MENU TAB SWITCHING ────────────────────────────────────────
+    const tabs = document.querySelectorAll('.menu-tab');
+    const panels = document.querySelectorAll('.menu-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const panel = document.getElementById('panel-' + target);
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    // ── TODAY'S HOURS ─────────────────────────────────────────────
+    // Saudi Arabia time (UTC+3) - day calculation
+    const saDate = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Riyadh' }));
+    const dayOfWeek = saDate.getDay(); // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
+    const hour = saDate.getHours();
+    const minute = saDate.getMinutes();
+    const nowMins = hour * 60 + minute;
+
+    // Define schedule
+    // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu = open, 5=Fri = afternoon only, 6=Sat = closed
+    const isFriday = dayOfWeek === 5;
+    const isSaturday = dayOfWeek === 6;
+
+    // Session times in minutes from midnight
+    const morningOpen  = 7 * 60;         // 7:00 AM
+    const morningClose = 12 * 60 + 30;   // 12:30 PM
+    const eveningOpen  = 16 * 60 + 30;   // 4:30 PM
+    const eveningClose = 24 * 60;        // 12:00 AM (midnight)
+
+    function getStatusText() {
+      if (isSaturday) return { open: false, text: 'مغلق اليوم' };
+      if (isFriday) {
+        if (nowMins >= eveningOpen && nowMins < eveningClose) return { open: true, text: 'مفتوح الآن' };
+        return { open: false, text: 'يفتح 4:30م' };
+      }
+      // Sun-Thu
+      if (nowMins >= morningOpen && nowMins < morningClose) return { open: true, text: 'مفتوح الآن' };
+      if (nowMins >= eveningOpen && nowMins < eveningClose) return { open: true, text: 'مفتوح الآن' };
+      if (nowMins < morningOpen) return { open: false, text: 'يفتح 7:00ص' };
+      if (nowMins >= morningClose && nowMins < eveningOpen) return { open: false, text: 'يفتح 4:30م' };
+      return { open: false, text: 'مغلق الآن' };
+    }
+
+    const status = getStatusText();
+    const statusColor = status.open ? '#5fd47e' : '#e07070';
+    const badgeColor = status.open ? 'rgba(95,212,126,0.12)' : 'rgba(224,112,112,0.12)';
+    const badgeBorder = status.open ? 'rgba(95,212,126,0.3)' : 'rgba(224,112,112,0.3)';
+
+    for (let i = 1; i <= 4; i++) {
+      const statusEl = document.getElementById('today-status-' + i);
+      const badgeEl  = document.getElementById('today-badge-' + i);
+      if (statusEl) {
+        statusEl.textContent = 'الحالة الآن: ';
+        statusEl.style.color = 'var(--text-muted)';
+      }
+      if (badgeEl) {
+        badgeEl.innerHTML = `<span class="today-badge" style="background:${badgeColor}; border-color:${badgeBorder}; color:${statusColor};">
+          <span style="width:7px;height:7px;background:${statusColor};border-radius:50%;display:inline-block;"></span>
+          ${status.text}
+        </span>`;
+      }
+    }
+
+    // ── HOURS TABLE ───────────────────────────────────────────────
+    const hoursTableEl = document.getElementById('hours-table');
+    const dayNames = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+    const daySchedule = {
+      0: '7:00ص - 12:30م / 4:30م - 12:00م',
+      1: '7:00ص - 12:30م / 4:30م - 12:00م',
+      2: '7:00ص - 12:30م / 4:30م - 12:00م',
+      3: '7:00ص - 12:30م / 4:30م - 12:00م',
+      4: '7:00ص - 12:30م / 4:30م - 12:00م',
+      5: '4:30م - 12:00م',
+      6: 'مغلق',
+    };
+
+    // Show Sun=0 through Sat=6
+    [0,1,2,3,4,5,6].forEach(d => {
+      const isToday = d === dayOfWeek;
+      const row = document.createElement('div');
+      row.className = 'hours-row' + (isToday ? ' today' : '');
+      const dotHtml = isToday ? '<span class="today-dot"></span>' : '';
+      const timeHtml = d === 6
+        ? `<span class="hours-closed">${daySchedule[d]}</span>`
+        : `<span class="hours-time" dir="ltr">${daySchedule[d]}</span>`;
+      row.innerHTML = `<span class="hours-day">${dotHtml}${dayNames[d]}</span>${timeHtml}`;
+      hoursTableEl.appendChild(row);
+    });
+
+    // ── FOOTER YEAR ───────────────────────────────────────────────
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
